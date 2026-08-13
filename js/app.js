@@ -190,22 +190,22 @@ function renderHome() {
 
       <div>
         <span>02</span>
-        <b>Tonton & pahami</b>
+        <b>Pemaparan Materi</b>
 
         <p>
           Materi dapat dilengkapi gambar,
-          grafik, dan video.
+          dan video.
         </p>
       </div>
 
 
       <div>
         <span>03</span>
-        <b>Kerjakan evaluasi</b>
+        <b>Pengisian Post Test</b>
 
         <p>
           Soal dapat ditempatkan di antara
-          materi sesuai alur training.
+          materi sesuai alur materi.
         </p>
       </div>
 
@@ -231,9 +231,9 @@ function renderIdentity() {
 
 
       <h2>
-        Sebelum mulai,
+        Identitas Peserta,
         <br>
-        kenalkan diri dulu.
+        .
       </h2>
 
 
