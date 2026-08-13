@@ -41,7 +41,7 @@ function layout(content, eyebrow = "TMS") {
       ${content}
 
       <footer>
-        Training Management System • Versi 1.0
+        Learning n Development - MAP 2026
       </footer>
 
     </div>
