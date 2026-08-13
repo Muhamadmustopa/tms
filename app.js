@@ -403,7 +403,126 @@ const state = {
 
 };
 
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
 
+const STORAGE_KEY = "TMS_TRAINING_STATE";
+
+
+function saveState() {
+
+  try {
+
+    const data = {
+
+      screen: state.screen,
+
+      participant: {
+        name: state.participant.name,
+        email: state.participant.email
+      },
+
+      currentSlide: state.currentSlide,
+
+      answers: state.answers
+
+    };
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Gagal menyimpan state:",
+      error
+    );
+
+  }
+
+}
+
+
+function loadState() {
+
+  try {
+
+    const saved =
+      localStorage.getItem(STORAGE_KEY);
+
+    if (!saved) {
+      return false;
+    }
+
+    const data =
+      JSON.parse(saved);
+
+    if (!data) {
+      return false;
+    }
+
+    state.screen =
+      data.screen || "home";
+
+    state.participant =
+      data.participant || {
+        name: "",
+        email: ""
+      };
+
+    state.currentSlide =
+      Number.isInteger(data.currentSlide)
+        ? data.currentSlide
+        : 0;
+
+    state.answers =
+      data.answers || {};
+
+    /* Proteksi slide */
+
+    const totalSlides =
+      getSlides().length;
+
+    if (totalSlides === 0) {
+
+      state.currentSlide = 0;
+
+    } else if (
+      state.currentSlide < 0
+    ) {
+
+      state.currentSlide = 0;
+
+    } else if (
+      state.currentSlide >= totalSlides
+    ) {
+
+      state.currentSlide =
+        totalSlides - 1;
+
+    }
+
+    return true;
+
+  } catch (error) {
+
+    console.error(
+      "Gagal membaca state:",
+      error
+    );
+
+    localStorage.removeItem(
+      STORAGE_KEY
+    );
+
+    return false;
+
+  }
+
+}
 /* =========================================================
    APP
    ========================================================= */
@@ -806,46 +925,31 @@ function renderIdentity() {
 /* =========================================================
    START TRAINING
    ========================================================= */
-
 function goIdentity() {
-
   state.screen = "identity";
-
+  saveState();
   render();
-
 }
 
-
 function startTraining(event) {
-
   event.preventDefault();
-
-
   state.participant.name =
     document
       .getElementById("name")
       .value
       .trim();
-
-
   state.participant.email =
     document
       .getElementById("email")
       .value
       .trim();
-
-
   state.currentSlide = 0;
-
   state.answers = {};
-
+  state.isSaving = false;
   state.screen = "learning";
-
+  saveState();
   render();
-
 }
-
-
 /* =========================================================
    MAIN LEARNING ENGINE
    ========================================================= */
@@ -1479,7 +1583,26 @@ function getVideoEmbed(url) {
     }
 
   }
+function finishTraining() {
 
+  clearTrainingState();
+
+  state.screen = "home";
+
+  state.currentSlide = 0;
+
+  state.answers = {};
+
+  state.participant = {
+    name: "",
+    email: ""
+  };
+
+  state.isSaving = false;
+
+  render();
+
+}
 
   /* =======================================================
      DIRECT MP4 / VIDEO
@@ -1624,47 +1747,59 @@ function renderQuestionSlide(slide) {
 /* =========================================================
    ANSWER QUESTION
    ========================================================= */
-
 function answerQuestion(index) {
-
   state.answers[state.currentSlide] =
     index;
-
+  saveState();
   renderLearning();
-
 }
-
 
 /* =========================================================
    PREVIOUS SLIDE
    ========================================================= */
-
 function previousSlide() {
-
   if (state.currentSlide <= 0) {
     return;
   }
-
-
   state.currentSlide--;
 
+  saveState();
 
   renderLearning();
-
 }
-
 
 /* =========================================================
    NEXT SLIDE
    ========================================================= */
 
 function nextSlide() {
-
   const slides = getSlides();
-
   const current =
     slides[state.currentSlide];
+  if (
+    current &&
+    current.type === "question" &&
+    state.answers[state.currentSlide] === undefined
+  ) {
+    return;
+  }
 
+  if (
+    state.currentSlide <
+    slides.length - 1
+  ) {
+
+    state.currentSlide++;
+    saveState();
+    renderLearning();
+    return;
+
+  }
+  state.screen = "result";
+  saveState();
+  render();
+
+}
 
   /* =======================================================
      QUESTION HARUS DIJAWAB
@@ -1865,25 +2000,15 @@ function renderResult() {
         <button
           class="primary"
           onclick="saveResult()"
-          id="save-result-button"
-        >
-
-          Simpan Hasil
-
-        </button>
+          id="save-result-button" >Simpan Hasil</button>
 
 
         <button
-          class="secondary"
-          onclick="location.reload()"
-        >
-
-          Selesai
-
-        </button>
-
+           class="secondary"
+           onclick="finishTraining()"
+         >Selesai</button>
       </div>
-
+      
 
       <div
         id="save-status"
@@ -2067,9 +2192,21 @@ async function saveResult() {
 
 }
 
-
 /* =========================================================
    START APPLICATION
    ========================================================= */
 
-render();
+const restored =
+  loadState();
+
+if (restored) {
+
+  render();
+
+} else {
+
+  state.screen = "home";
+
+  render();
+
+}
