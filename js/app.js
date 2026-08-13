@@ -113,7 +113,7 @@ function renderHome() {
           <em></em>
         </h1>
 
-        <p>emahaman dasar dalam materi safe commuting awereness</p>
+        <p>pemahaman dasar dalam materi safe commuting awereness</p>
 
         <button
           class="primary"
