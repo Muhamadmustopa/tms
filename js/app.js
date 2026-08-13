@@ -1,3 +1,10 @@
+import {
+  state,
+  saveState,
+  loadState,
+  clearTrainingState
+} from "./state.js";
+
 const app =
   document.getElementById("app");
 
