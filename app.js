@@ -108,23 +108,83 @@ function renderIdentity() {
 function renderMaterial() {
   const m = TRAINING.materials[state.materialIndex];
   const total = TRAINING.materials.length;
+
+  const isFirst = state.materialIndex === 0;
+  const isLast = state.materialIndex === total - 1;
+
   app.innerHTML = layout(`
     <section class="learning">
+
       ${progress(state.materialIndex + 1, total)}
-      <div class="learning-meta"><span>MATERI ${String(state.materialIndex+1).padStart(2,"0")} / ${String(total).padStart(2,"0")}</span><span>${TRAINING.title}</span></div>
-      <article class="material-card">
-        <div class="material-number">${String(state.materialIndex+1).padStart(2,"0")}</div>
-        <div class="material-content">
-          <div class="pill soft">MATERI PEMBELAJARAN</div>
-          <h2>${m.title}</h2>
-          <p>${m.text}</p>
-          <div class="points">${m.points.map((p,i)=>`<div><span>✓</span>${p}</div>`).join("")}</div>
-        </div>
-      </article>
-      <div class="nav-row">
-        <span class="muted">Baca dan pahami sebelum melanjutkan.</span>
-        <button class="primary" onclick="nextMaterial()">${state.materialIndex === total-1 ? "Mulai Post Test" : "Materi Berikutnya"} <span>→</span></button>
+
+      <div class="learning-meta">
+        <span>
+          MATERI 
+          ${String(state.materialIndex + 1).padStart(2, "0")} 
+          / 
+          ${String(total).padStart(2, "0")}
+        </span>
+
+        <span>${TRAINING.title}</span>
       </div>
+
+      <article class="material-card">
+
+        <div class="material-number">
+          ${String(state.materialIndex + 1).padStart(2, "0")}
+        </div>
+
+        <div class="material-content">
+
+          <div class="pill soft">
+            MATERI PEMBELAJARAN
+          </div>
+
+          <h2>${m.title}</h2>
+
+          <p>${m.text}</p>
+
+          <div class="points">
+
+            ${m.points.map((p, i) => `
+              <div>
+                <span>✓</span>
+                ${p}
+              </div>
+            `).join("")}
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <div class="nav-row">
+
+        <button
+          class="secondary"
+          onclick="previousMaterial()"
+          ${isFirst ? "disabled" : ""}
+        >
+          ← Sebelumnya
+        </button>
+
+        <span class="muted">
+          ${isLast
+            ? "Semua materi sudah selesai."
+            : "Lanjut ke materi berikutnya."}
+        </span>
+
+        <button
+          class="primary"
+          onclick="nextMaterial()"
+        >
+          ${isLast ? "Mulai Post Test" : "Berikutnya"}
+          →
+        </button>
+
+      </div>
+
     </section>
   `);
 }
@@ -172,6 +232,14 @@ function startTraining(e){
   state.participant.email=document.getElementById("email").value.trim();
   state.screen="material"; render();
 }
+
+function previousMaterial() {
+  if (state.materialIndex > 0) {
+    state.materialIndex--;
+    render();
+  }
+}
+
 function nextMaterial(){
   if(state.materialIndex < TRAINING.materials.length-1){ state.materialIndex++; }
   else { state.screen="quiz"; }
