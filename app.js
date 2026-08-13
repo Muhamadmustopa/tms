@@ -41,7 +41,7 @@ const CONFIG = {
 const TRAINING = {
 
   title: "Learning and Development",
-  subtitle: "Materi safe commuting awareness,
+  subtitle: "Materi safe commuting awareness",
   slides: [
 
     /* =====================================================
@@ -58,10 +58,9 @@ const TRAINING = {
         "Safe commuting awareness dirancang untuk seluruh karyawan untuk selalu waspada terhadap resiko apapun",
 
       image:
-        ""assets/images/slide1.png",
+         "./assets/images/Slide2.png",
 
       points: [
-        
         "Laporkan kondisi yang tidak aman"
       ]
     },
@@ -75,13 +74,13 @@ const TRAINING = {
     {
       type: "image",
 
-      title: "Gambaran Risiko Kecelakaan Kerja",
+      title: "Grafik Angka kecelakaan lalu lintas",
 
       text:
         "Berbagai kecelakaan kerja dapat terjadi karena kombinasi tindakan tidak aman dan kondisi lingkungan yang tidak aman. Memahami sumber risiko membantu kita melakukan pencegahan sejak awal.",
 
       image:
-        ""assets/images/slide2.png""
+        "./assets/images/Slide3.png",
     },
 
 
