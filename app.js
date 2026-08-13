@@ -40,12 +40,8 @@ const CONFIG = {
 
 const TRAINING = {
 
-  title: "Basic K3 di Tempat Kerja",
-
-  subtitle: "Materi pembelajaran & evaluasi",
-
-  duration: "± 15 menit",
-
+  title: "Learning and Development",
+  subtitle: "Materi safe commuting awareness,
   slides: [
 
     /* =====================================================
@@ -56,18 +52,16 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Pemahaman Dasar K3",
+      title: "Safe Commuting Awareness",
 
       text:
-        "Keselamatan dan Kesehatan Kerja merupakan upaya untuk menciptakan lingkungan kerja yang aman, sehat, dan produktif. K3 bukan hanya menjadi tanggung jawab satu orang, tetapi merupakan tanggung jawab seluruh pihak di tempat kerja.",
+        "Safe commuting awareness dirancang untuk seluruh karyawan untuk selalu waspada terhadap resiko apapun",
 
       image:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+        "Slide1.png,
 
       points: [
-        "Cek saja satu persatu",
-        "Gunakan alat pelindung sesuai risiko",
-        "Ikuti prosedur kerja yang aman",
+        
         "Laporkan kondisi yang tidak aman"
       ]
     },
