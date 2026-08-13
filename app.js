@@ -65,7 +65,7 @@ const TRAINING = {
         "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
 
       points: [
-        "Kenali potensi bahaya di tempat kerja",
+        "Cek saja satu persatu",
         "Gunakan alat pelindung sesuai risiko",
         "Ikuti prosedur kerja yang aman",
         "Laporkan kondisi yang tidak aman"
