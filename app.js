@@ -1,266 +1,2082 @@
+/* =========================================================
+   TMS - TRAINING MANAGEMENT SYSTEM
+   Slide Based Learning System
+   ========================================================= */
+
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
 const CONFIG = {
-  googleScriptUrl: "https://script.google.com/macros/s/AKfycbxhgHyJeH3UgkEgRLsPRcB9dMa_nvLgZcf3H3ghe2EciLki1TJq8-lLJP5gTzULuhSPoQ/exec",
+  googleScriptUrl:
+    "https://script.google.com/macros/s/AKfycbxhgHyJeH3UgkEgRLsPRcB9dMa_nvLgZcf3H3ghe2EciLki1TJq8-lLJP5gTzULuhSPoQ/exec",
+
   passingGrade: 75
 };
 
+
+/* =========================================================
+   TRAINING CONTENT
+   =========================================================
+
+   TYPE YANG TERSEDIA:
+
+   1. material
+      Materi + text + optional image
+
+   2. image
+      Gambar / grafik + text
+
+   3. video
+      YouTube atau MP4 + text
+
+   4. question
+      Pertanyaan + pilihan jawaban
+
+   Kamu bebas mencampur urutannya.
+
+   ========================================================= */
+
 const TRAINING = {
+
   title: "Basic K3 di Tempat Kerja",
-  subtitle: "Materi pembelajaran & post test",
-  duration: "± 10 menit",
-  questionsCount: 5,
-  materials: [
-    {
-      type: "intro",
-      title: "Mengapa K3 penting?",
-      text: "Keselamatan dan Kesehatan Kerja membantu menciptakan lingkungan kerja yang aman, sehat, dan produktif. Pahami prinsip dasarnya sebelum masuk ke evaluasi.",
-      points: ["Kenali potensi bahaya", "Gunakan APD sesuai pekerjaan", "Laporkan kondisi tidak aman"]
-    },
+
+  subtitle: "Materi pembelajaran & evaluasi",
+
+  duration: "± 15 menit",
+
+  slides: [
+
+    /* =====================================================
+       SLIDE 1
+       MATERI + GAMBAR
+       ===================================================== */
+
     {
       type: "material",
+
+      title: "Pemahaman Dasar K3",
+
+      text:
+        "Keselamatan dan Kesehatan Kerja merupakan upaya untuk menciptakan lingkungan kerja yang aman, sehat, dan produktif. K3 bukan hanya menjadi tanggung jawab satu orang, tetapi merupakan tanggung jawab seluruh pihak di tempat kerja.",
+
+      image:
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+
+      points: [
+        "Kenali potensi bahaya di tempat kerja",
+        "Gunakan alat pelindung sesuai risiko",
+        "Ikuti prosedur kerja yang aman",
+        "Laporkan kondisi yang tidak aman"
+      ]
+    },
+
+
+    /* =====================================================
+       SLIDE 2
+       GAMBAR / GRAFIK
+       ===================================================== */
+
+    {
+      type: "image",
+
+      title: "Gambaran Risiko Kecelakaan Kerja",
+
+      text:
+        "Berbagai kecelakaan kerja dapat terjadi karena kombinasi tindakan tidak aman dan kondisi lingkungan yang tidak aman. Memahami sumber risiko membantu kita melakukan pencegahan sejak awal.",
+
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+    },
+
+
+    /* =====================================================
+       SLIDE 3
+       VIDEO
+       ===================================================== */
+
+    {
+      type: "video",
+
+      title: "Video Pengenalan K3",
+
+      text:
+        "Silakan simak video berikut untuk memahami pentingnya keselamatan dan kesehatan kerja sebelum melanjutkan ke pertanyaan.",
+
+      video:
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+
+
+    /* =====================================================
+       SLIDE 4
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Apa tujuan utama penerapan K3?",
+
+      options: [
+        "Mempercepat pekerjaan tanpa aturan",
+        "Menciptakan tempat kerja yang aman dan sehat",
+        "Mengurangi jumlah karyawan",
+        "Menghilangkan seluruh pekerjaan"
+      ],
+
+      answer: 1
+    },
+
+
+    /* =====================================================
+       SLIDE 5
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Manakah yang merupakan contoh potensi bahaya?",
+
+      options: [
+        "Area kerja tertata",
+        "APD sesuai standar",
+        "Kabel berserakan di jalur berjalan",
+        "Briefing keselamatan"
+      ],
+
+      answer: 2
+    },
+
+
+    /* =====================================================
+       SLIDE 6
+       MATERI + GAMBAR
+       ===================================================== */
+
+    {
+      type: "material",
+
+      title: "Penggunaan Alat Pelindung Diri",
+
+      text:
+        "Alat Pelindung Diri atau APD digunakan sebagai perlindungan tambahan bagi pekerja dari risiko yang masih ada setelah pengendalian bahaya dilakukan.",
+
+      image:
+        "https://images.unsplash.com/photo-1581093458791-9d42e3c5f0b1?auto=format&fit=crop&w=1200&q=80",
+
+      points: [
+        "Pilih APD sesuai risiko pekerjaan",
+        "Pastikan APD dalam kondisi layak",
+        "Gunakan APD dengan benar",
+        "Rawat dan simpan APD sesuai prosedur"
+      ]
+    },
+
+
+    /* =====================================================
+       SLIDE 7
+       MATERI + GAMBAR
+       ===================================================== */
+
+    {
+      type: "material",
+
       title: "Kenali Potensi Bahaya",
-      text: "Potensi bahaya adalah kondisi atau tindakan yang dapat menyebabkan cedera, kerusakan, atau gangguan kesehatan. Contohnya lantai licin, kabel berserakan, atau penggunaan alat tanpa prosedur.",
-      points: ["Amati area kerja", "Identifikasi sumber bahaya", "Lakukan pengendalian yang sesuai"]
+
+      text:
+        "Potensi bahaya adalah kondisi atau tindakan yang dapat menyebabkan cedera, kerusakan, atau gangguan kesehatan. Bahaya dapat berasal dari lingkungan, peralatan, bahan, maupun perilaku manusia.",
+
+      image:
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+
+      points: [
+        "Amati kondisi area kerja",
+        "Identifikasi sumber bahaya",
+        "Nilai tingkat risikonya",
+        "Lakukan pengendalian yang sesuai"
+      ]
     },
+
+
+    /* =====================================================
+       SLIDE 8
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "APD digunakan terutama untuk...",
+
+      options: [
+        "Menambah gaya berpakaian",
+        "Memberikan perlindungan tambahan sesuai risiko",
+        "Menggantikan semua prosedur kerja",
+        "Mengurangi waktu istirahat"
+      ],
+
+      answer: 1
+    },
+
+
+    /* =====================================================
+       SLIDE 9
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Sebelum menggunakan APD, kita sebaiknya...",
+
+      options: [
+        "Memastikan kondisi APD layak digunakan",
+        "Langsung menggunakannya tanpa pemeriksaan",
+        "Meminjamkan kepada orang lain",
+        "Melepas bagian pengaman APD"
+      ],
+
+      answer: 0
+    },
+
+
+    /* =====================================================
+       SLIDE 10
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Jika menemukan kondisi tidak aman, tindakan yang tepat adalah...",
+
+      options: [
+        "Membiarkannya",
+        "Menunggu sampai terjadi kecelakaan",
+        "Melaporkan dan melakukan pengendalian sesuai prosedur",
+        "Mengabaikannya"
+      ],
+
+      answer: 2
+    },
+
+
+    /* =====================================================
+       SLIDE 11
+       MATERI + GAMBAR
+       ===================================================== */
+
     {
       type: "material",
-      title: "Penggunaan APD",
-      text: "Alat Pelindung Diri digunakan sesuai risiko pekerjaan. APD bukan pengganti pengendalian bahaya, tetapi menjadi perlindungan tambahan bagi pekerja.",
-      points: ["Pilih APD sesuai risiko", "Pastikan APD layak digunakan", "Gunakan dengan benar"]
+
+      title: "Identifikasi Bahaya",
+
+      text:
+        "Identifikasi bahaya dilakukan untuk mengetahui sumber bahaya yang dapat menyebabkan kecelakaan atau gangguan kesehatan. Proses ini merupakan bagian penting dalam pengendalian risiko.",
+
+      image:
+        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+
+      points: [
+        "Periksa kondisi lingkungan kerja",
+        "Periksa peralatan dan mesin",
+        "Perhatikan aktivitas pekerja",
+        "Catat potensi bahaya yang ditemukan"
+      ]
+    },
+
+
+    /* =====================================================
+       SLIDE 12
+       MATERI + GAMBAR
+       ===================================================== */
+
+    {
+      type: "material",
+
+      title: "Pengendalian Risiko",
+
+      text:
+        "Setelah bahaya diidentifikasi, langkah berikutnya adalah melakukan pengendalian untuk mengurangi kemungkinan terjadinya kecelakaan atau dampak kesehatan.",
+
+      image:
+        "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80",
+
+      points: [
+        "Hilangkan sumber bahaya jika memungkinkan",
+        "Gunakan pengendalian teknis",
+        "Gunakan prosedur kerja yang aman",
+        "Gunakan APD sebagai perlindungan tambahan"
+      ]
+    },
+
+
+    /* =====================================================
+       SLIDE 13
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Apa langkah awal dalam proses pengendalian risiko?",
+
+      options: [
+        "Mengidentifikasi bahaya",
+        "Mengabaikan risiko",
+        "Menghentikan seluruh pekerjaan",
+        "Membuat laporan keuangan"
+      ],
+
+      answer: 0
+    },
+
+
+    /* =====================================================
+       SLIDE 14
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Mengapa risiko di tempat kerja perlu dikendalikan?",
+
+      options: [
+        "Agar pekerjaan menjadi lebih lama",
+        "Untuk mencegah kejadian yang tidak diinginkan",
+        "Untuk menambah pekerjaan",
+        "Agar terlihat sibuk"
+      ],
+
+      answer: 1
+    },
+
+
+    /* =====================================================
+       SLIDE 15
+       QUESTION
+       ===================================================== */
+
+    {
+      type: "question",
+
+      q:
+        "Apa tindakan yang tepat ketika melihat kondisi berbahaya?",
+
+      options: [
+        "Membiarkannya",
+        "Melaporkan dan melakukan tindakan pengendalian",
+        "Menunggu orang lain",
+        "Mengabaikannya"
+      ],
+
+      answer: 1
     }
-  ],
-  questions: [
-    { q: "Apa tujuan utama penerapan K3?", options: ["Mempercepat pekerjaan tanpa aturan", "Menciptakan tempat kerja yang aman dan sehat", "Mengurangi jumlah karyawan", "Menghilangkan seluruh pekerjaan"], answer: 1 },
-    { q: "Manakah yang merupakan contoh potensi bahaya?", options: ["Area kerja tertata", "APD sesuai standar", "Kabel berserakan di jalur berjalan", "Briefing keselamatan"], answer: 2 },
-    { q: "APD digunakan terutama untuk...", options: ["Menambah gaya berpakaian", "Memberikan perlindungan tambahan sesuai risiko", "Menggantikan semua prosedur kerja", "Mengurangi waktu istirahat"], answer: 1 },
-    { q: "Jika menemukan kondisi tidak aman, tindakan yang tepat adalah...", options: ["Membiarkannya", "Menunggu sampai terjadi kecelakaan", "Melaporkan dan melakukan pengendalian sesuai prosedur", "Memfoto lalu menghapusnya"], answer: 2 },
-    { q: "Sebelum menggunakan alat kerja, sebaiknya...", options: ["Langsung digunakan", "Memastikan kondisi alat dan memahami prosedurnya", "Meminjamkan ke orang lain", "Melepas pengaman alat"], answer: 1 }
+
   ]
+
 };
 
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
 const state = {
+
   screen: "home",
-  participant: { name: "", email: "" },
-  materialIndex: 0,
-  questionIndex: 0,
-  answers: []
+
+  participant: {
+    name: "",
+    email: ""
+  },
+
+  currentSlide: 0,
+
+  answers: {},
+
+  isSaving: false
+
 };
+
+
+/* =========================================================
+   APP
+   ========================================================= */
 
 const app = document.getElementById("app");
 
-function progress(current, total) {
-  return `<div class="progress"><div class="progress-bar" style="width:${Math.round((current/total)*100)}%"></div></div>`;
+
+/* =========================================================
+   HELPER
+   ========================================================= */
+
+function getSlides() {
+
+  return TRAINING.slides || [];
+
 }
+
+
+function getQuestions() {
+
+  return getSlides().filter(
+    slide => slide.type === "question"
+  );
+
+}
+
+
+function getQuestionCount() {
+
+  return getQuestions().length;
+
+}
+
+
+function getMaterialCount() {
+
+  return getSlides().filter(
+    slide =>
+      slide.type === "material" ||
+      slide.type === "image" ||
+      slide.type === "video"
+  ).length;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+function progress(current, total) {
+
+  const percentage =
+    total > 0
+      ? Math.round((current / total) * 100)
+      : 0;
+
+  return `
+    <div class="progress">
+      <div
+        class="progress-bar"
+        style="width:${percentage}%"
+      ></div>
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
 
 function layout(content, eyebrow = "TMS") {
-  return `<div class="shell">
-    <header class="topbar"><div class="brand"><span class="brand-mark">T</span><span>${eyebrow}</span></div><span class="mini-label">TRAINING & LEARNING</span></header>
-    ${content}
-    <footer>Training Management System • Versi 1.0</footer>
-  </div>`;
-}
 
-function render() {
-  if (state.screen === "home") renderHome();
-  if (state.screen === "identity") renderIdentity();
-  if (state.screen === "material") renderMaterial();
-  if (state.screen === "quiz") renderQuiz();
-  if (state.screen === "result") renderResult();
-}
+  return `
+    <div class="shell">
 
-function renderHome() {
-  app.innerHTML = layout(`
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="pill">● ONLINE TRAINING</div>
-        <h1>Belajar singkat.<br><em>Paham lebih cepat.</em></h1>
-        <p>Materi dan evaluasi dalam satu pengalaman belajar yang sederhana. Tidak perlu terasa seperti mengisi formulir.</p>
-        <button class="primary" onclick="goIdentity()">Mulai Training <span>→</span></button>
-      </div>
-      <div class="hero-card">
-        <div class="card-icon">▣</div>
-        <div><strong>${TRAINING.title}</strong><small>${TRAINING.subtitle}</small></div>
-        <div class="stats"><span><b>${TRAINING.materials.length}</b> Materi</span><span><b>${TRAINING.questionsCount}</b> Soal</span><span><b>${TRAINING.duration}</b></span></div>
-      </div>
-    </section>
-    <section class="feature-row">
-      <div><span>01</span><b>Pelajari materi</b><p>Baca poin penting secara bertahap.</p></div>
-      <div><span>02</span><b>Kerjakan post test</b><p>Jawab soal setelah materi selesai.</p></div>
-      <div><span>03</span><b>Lihat hasil</b><p>Nilai dihitung otomatis.</p></div>
-    </section>
-  `);
-}
+      <header class="topbar">
 
-function renderIdentity() {
-  app.innerHTML = layout(`
-    <section class="form-page">
-      <div class="section-kicker">01 / IDENTITAS PESERTA</div>
-      <h2>Sebelum mulai,<br>kenalkan diri dulu.</h2>
-      <p class="muted">Data ini digunakan untuk mencatat hasil training.</p>
-      <form onsubmit="startTraining(event)" class="identity-form">
-        <label>Nama lengkap<input id="name" required placeholder="Contoh: Ahmad Yani"></label>
-        <label>Email <span class="optional">(opsional)</span><input id="email" type="email" placeholder="nama@perusahaan.com"></label>
-        <button class="primary full">Lanjut ke Materi <span>→</span></button>
-      </form>
-    </section>
-  `);
-}
+        <div class="brand">
 
-function renderMaterial() {
-  const m = TRAINING.materials[state.materialIndex];
-  const total = TRAINING.materials.length;
+          <span class="brand-mark">
+            T
+          </span>
 
-  const isFirst = state.materialIndex === 0;
-  const isLast = state.materialIndex === total - 1;
+          <span>
+            ${eyebrow}
+          </span>
 
-  app.innerHTML = layout(`
-    <section class="learning">
+        </div>
 
-      ${progress(state.materialIndex + 1, total)}
-
-      <div class="learning-meta">
-        <span>
-          MATERI 
-          ${String(state.materialIndex + 1).padStart(2, "0")} 
-          / 
-          ${String(total).padStart(2, "0")}
+        <span class="mini-label">
+          TRAINING & LEARNING
         </span>
 
-        <span>${TRAINING.title}</span>
+      </header>
+
+      ${content}
+
+      <footer>
+        Training Management System • Versi 1.0
+      </footer>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   RENDER ROUTER
+   ========================================================= */
+
+function render() {
+
+  if (state.screen === "home") {
+    renderHome();
+    return;
+  }
+
+  if (state.screen === "identity") {
+    renderIdentity();
+    return;
+  }
+
+  if (state.screen === "learning") {
+    renderLearning();
+    return;
+  }
+
+  if (state.screen === "result") {
+    renderResult();
+    return;
+  }
+
+}
+
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+function renderHome() {
+
+  const slideCount = getSlides().length;
+
+  const questionCount = getQuestionCount();
+
+  const materialCount = getMaterialCount();
+
+  app.innerHTML = layout(`
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <div class="pill">
+          ● ONLINE TRAINING
+        </div>
+
+        <h1>
+          Belajar singkat.
+          <br>
+          <em>Paham lebih cepat.</em>
+        </h1>
+
+        <p>
+          Materi, gambar, video, dan evaluasi
+          dalam satu pengalaman belajar yang
+          sederhana dan interaktif.
+        </p>
+
+        <button
+          class="primary"
+          onclick="goIdentity()"
+        >
+          Mulai Training
+          <span>→</span>
+        </button>
+
       </div>
 
-      <article class="material-card">
 
-        <div class="material-number">
-          ${String(state.materialIndex + 1).padStart(2, "0")}
+      <div class="hero-card">
+
+        <div class="card-icon">
+          ▣
         </div>
+
+        <div>
+
+          <strong>
+            ${TRAINING.title}
+          </strong>
+
+          <small>
+            ${TRAINING.subtitle}
+          </small>
+
+        </div>
+
+
+        <div class="stats">
+
+          <span>
+
+            <b>
+              ${materialCount}
+            </b>
+
+            Materi
+
+          </span>
+
+
+          <span>
+
+            <b>
+              ${questionCount}
+            </b>
+
+            Soal
+
+          </span>
+
+
+          <span>
+
+            <b>
+              ${TRAINING.duration}
+            </b>
+
+            Durasi
+
+          </span>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:18px;
+            padding-top:18px;
+            border-top:1px solid #edf0f4;
+            font-size:12px;
+            color:#7b8494;
+          "
+        >
+
+          ${slideCount} slide pembelajaran
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="feature-row">
+
+      <div>
+
+        <span>
+          01
+        </span>
+
+        <b>
+          Pelajari materi
+        </b>
+
+        <p>
+          Materi disajikan secara bertahap
+          melalui slide yang interaktif.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          02
+        </span>
+
+        <b>
+          Tonton & pahami
+        </b>
+
+        <p>
+          Materi dapat dilengkapi gambar,
+          grafik, dan video.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          03
+        </span>
+
+        <b>
+          Kerjakan evaluasi
+        </b>
+
+        <p>
+          Soal dapat ditempatkan di antara
+          materi sesuai alur training.
+        </p>
+
+      </div>
+
+    </section>
+
+  `);
+
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+function renderIdentity() {
+
+  app.innerHTML = layout(`
+
+    <section class="form-page">
+
+      <div class="section-kicker">
+        01 / IDENTITAS PESERTA
+      </div>
+
+
+      <h2>
+        Sebelum mulai,
+        <br>
+        kenalkan diri dulu.
+      </h2>
+
+
+      <p class="muted">
+        Data ini digunakan untuk mencatat
+        hasil training.
+      </p>
+
+
+      <form
+        onsubmit="startTraining(event)"
+        class="identity-form"
+      >
+
+        <label>
+
+          Nama lengkap
+
+          <input
+            id="name"
+            required
+            placeholder="Contoh: Ahmad Yani"
+          >
+
+        </label>
+
+
+        <label>
+
+          Email
+          <span class="optional">
+            (opsional)
+          </span>
+
+          <input
+            id="email"
+            type="email"
+            placeholder="nama@perusahaan.com"
+          >
+
+        </label>
+
+
+        <button
+          class="primary full"
+        >
+          Mulai Training
+          <span>→</span>
+        </button>
+
+      </form>
+
+    </section>
+
+  `);
+
+}
+
+
+/* =========================================================
+   START TRAINING
+   ========================================================= */
+
+function goIdentity() {
+
+  state.screen = "identity";
+
+  render();
+
+}
+
+
+function startTraining(event) {
+
+  event.preventDefault();
+
+
+  state.participant.name =
+    document
+      .getElementById("name")
+      .value
+      .trim();
+
+
+  state.participant.email =
+    document
+      .getElementById("email")
+      .value
+      .trim();
+
+
+  state.currentSlide = 0;
+
+  state.answers = {};
+
+  state.screen = "learning";
+
+  render();
+
+}
+
+
+/* =========================================================
+   MAIN LEARNING ENGINE
+   ========================================================= */
+
+function renderLearning() {
+
+  const slides = getSlides();
+
+  const totalSlides = slides.length;
+
+  const slide = slides[state.currentSlide];
+
+  if (!slide) {
+
+    state.screen = "result";
+
+    render();
+
+    return;
+
+  }
+
+
+  let content = "";
+
+
+  /* =======================================================
+     MATERIAL
+     ======================================================= */
+
+  if (slide.type === "material") {
+
+    content = renderMaterialSlide(slide);
+
+  }
+
+
+  /* =======================================================
+     IMAGE
+     ======================================================= */
+
+  else if (slide.type === "image") {
+
+    content = renderImageSlide(slide);
+
+  }
+
+
+  /* =======================================================
+     VIDEO
+     ======================================================= */
+
+  else if (slide.type === "video") {
+
+    content = renderVideoSlide(slide);
+
+  }
+
+
+  /* =======================================================
+     QUESTION
+     ======================================================= */
+
+  else if (slide.type === "question") {
+
+    content = renderQuestionSlide(slide);
+
+  }
+
+
+  /* =======================================================
+     UNKNOWN TYPE
+     ======================================================= */
+
+  else {
+
+    content = `
+
+      <article class="material-card">
 
         <div class="material-content">
 
           <div class="pill soft">
-            MATERI PEMBELAJARAN
+            ERROR
           </div>
 
-          <h2>${m.title}</h2>
+          <h2>
+            Tipe slide tidak dikenali
+          </h2>
 
-          <p>${m.text}</p>
-
-          <div class="points">
-
-            ${m.points.map((p, i) => `
-              <div>
-                <span>✓</span>
-                ${p}
-              </div>
-            `).join("")}
-
-          </div>
+          <p>
+            Tipe slide
+            <code>${slide.type}</code>
+            belum didukung.
+          </p>
 
         </div>
 
       </article>
 
-      <div class="nav-row">
+    `;
+
+  }
+
+
+  const isFirst =
+    state.currentSlide === 0;
+
+
+  const isLast =
+    state.currentSlide === totalSlides - 1;
+
+
+  const isQuestion =
+    slide.type === "question";
+
+
+  const selectedAnswer =
+    isQuestion
+      ? state.answers[state.currentSlide]
+      : undefined;
+
+
+  const canNext =
+    !isQuestion ||
+    selectedAnswer !== undefined;
+
+
+  app.innerHTML = layout(`
+
+    <section class="learning">
+
+
+      ${progress(
+        state.currentSlide + 1,
+        totalSlides
+      )}
+
+
+      <div class="learning-meta">
+
+        <span>
+
+          SLIDE
+          ${String(
+            state.currentSlide + 1
+          ).padStart(2, "0")}
+
+          /
+
+          ${String(totalSlides).padStart(2, "0")}
+
+        </span>
+
+
+        <span>
+
+          ${TRAINING.title}
+
+        </span>
+
+      </div>
+
+
+      ${content}
+
+
+      <div
+        class="nav-row"
+        style="
+          align-items:center;
+          margin-top:22px;
+        "
+      >
+
 
         <button
+
           class="secondary"
-          onclick="previousMaterial()"
+
+          onclick="previousSlide()"
+
           ${isFirst ? "disabled" : ""}
+
         >
+
           ← Sebelumnya
+
         </button>
 
-        <span class="muted">
-          ${isLast
-            ? "Semua materi sudah selesai."
-            : "Lanjut ke materi berikutnya."}
+
+        <span
+          class="muted"
+          style="
+            text-align:center;
+            flex:1;
+          "
+        >
+
+          ${isQuestion
+
+            ? (
+                selectedAnswer === undefined
+                  ? "Pilih salah satu jawaban."
+                  : "Jawaban sudah dipilih."
+              )
+
+            : (
+                isLast
+                  ? "Training selesai."
+                  : "Lanjut ke slide berikutnya."
+              )
+
+          }
+
         </span>
+
+
+        <button
+
+          class="primary"
+
+          onclick="nextSlide()"
+
+          ${!canNext ? "disabled" : ""}
+
+        >
+
+          ${isLast
+            ? "Lihat Hasil"
+            : "Berikutnya"}
+
+          →
+
+        </button>
+
+
+      </div>
+
+
+    </section>
+
+  `);
+
+}
+
+
+/* =========================================================
+   MATERIAL SLIDE
+   ========================================================= */
+
+function renderMaterialSlide(slide) {
+
+  const image = slide.image
+    ? `
+
+      <div
+        style="
+          margin-bottom:28px;
+          border-radius:18px;
+          overflow:hidden;
+          border:1px solid #e6e9ef;
+          background:#f5f7fb;
+        "
+      >
+
+        <img
+
+          src="${slide.image}"
+
+          alt="${slide.title || "Materi"}"
+
+          style="
+            width:100%;
+            display:block;
+            max-height:420px;
+            object-fit:cover;
+          "
+
+        >
+
+      </div>
+
+    `
+    : "";
+
+
+  const points = Array.isArray(slide.points)
+    ? slide.points
+    : [];
+
+
+  return `
+
+    <article class="material-card">
+
+      <div class="material-number">
+
+        ${String(
+          state.currentSlide + 1
+        ).padStart(2, "0")}
+
+      </div>
+
+
+      <div class="material-content">
+
+        <div class="pill soft">
+          MATERI PEMBELAJARAN
+        </div>
+
+
+        <h2>
+          ${slide.title || ""}
+        </h2>
+
+
+        ${image}
+
+
+        <p>
+          ${slide.text || ""}
+        </p>
+
+
+        ${
+          points.length
+            ? `
+
+              <div class="points">
+
+                ${points.map(
+                  (point, index) => `
+
+                    <div>
+
+                      <span>
+                        ✓
+                      </span>
+
+                      ${point}
+
+                    </div>
+
+                  `
+                ).join("")}
+
+              </div>
+
+            `
+            : ""
+        }
+
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   IMAGE / GRAPHIC SLIDE
+   ========================================================= */
+
+function renderImageSlide(slide) {
+
+  return `
+
+    <article
+      class="material-card"
+      style="
+        grid-template-columns:1fr;
+      "
+    >
+
+      <div class="material-content">
+
+        <div class="pill soft">
+          VISUAL / GRAFIK
+        </div>
+
+
+        <h2>
+          ${slide.title || ""}
+        </h2>
+
+
+        ${
+          slide.image
+            ? `
+
+              <div
+                style="
+                  margin:28px 0;
+                  border-radius:20px;
+                  overflow:hidden;
+                  border:1px solid #e6e9ef;
+                  background:#f5f7fb;
+                "
+              >
+
+                <img
+
+                  src="${slide.image}"
+
+                  alt="${slide.title || "Gambar training"}"
+
+                  style="
+                    display:block;
+                    width:100%;
+                    max-height:520px;
+                    object-fit:contain;
+                    background:#f5f7fb;
+                  "
+
+                >
+
+              </div>
+
+            `
+            : `
+
+              <div
+                style="
+                  padding:50px;
+                  text-align:center;
+                  background:#f5f7fb;
+                  border-radius:16px;
+                  color:#8b93a3;
+                "
+              >
+
+                Gambar belum tersedia.
+
+              </div>
+
+            `
+        }
+
+
+        <p>
+          ${slide.text || ""}
+        </p>
+
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   VIDEO SLIDE
+   ========================================================= */
+
+function renderVideoSlide(slide) {
+
+  const videoHtml =
+    getVideoEmbed(slide.video);
+
+
+  return `
+
+    <article
+      class="material-card"
+      style="
+        grid-template-columns:1fr;
+      "
+    >
+
+      <div class="material-content">
+
+        <div class="pill soft">
+          VIDEO PEMBELAJARAN
+        </div>
+
+
+        <h2>
+          ${slide.title || ""}
+        </h2>
+
+
+        <div
+          style="
+            margin:28px 0;
+            border-radius:20px;
+            overflow:hidden;
+            background:#111827;
+            border:1px solid #e6e9ef;
+          "
+        >
+
+          ${videoHtml}
+
+        </div>
+
+
+        <p>
+          ${slide.text || ""}
+        </p>
+
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   VIDEO HELPER
+   ========================================================= */
+
+function getVideoEmbed(url) {
+
+  if (!url) {
+
+    return `
+
+      <div
+        style="
+          padding:70px 20px;
+          text-align:center;
+          color:#9ca3af;
+        "
+      >
+
+        Video belum tersedia.
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =======================================================
+     YOUTUBE
+     ======================================================= */
+
+  if (
+    url.includes("youtube.com") ||
+    url.includes("youtu.be")
+  ) {
+
+    let videoId = "";
+
+
+    if (url.includes("youtu.be/")) {
+
+      videoId =
+        url
+          .split("youtu.be/")[1]
+          .split("?")[0];
+
+    }
+
+
+    else if (url.includes("watch?v=")) {
+
+      videoId =
+        new URL(url).searchParams.get("v");
+
+    }
+
+
+    else if (url.includes("/embed/")) {
+
+      videoId =
+        url
+          .split("/embed/")[1]
+          .split("?")[0];
+
+    }
+
+
+    if (videoId) {
+
+      return `
+
+        <div
+          style="
+            position:relative;
+            width:100%;
+            padding-top:56.25%;
+          "
+        >
+
+          <iframe
+
+            src="https://www.youtube.com/embed/${videoId}"
+
+            title="Video Training"
+
+            frameborder="0"
+
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share
+            "
+
+            allowfullscreen
+
+            style="
+              position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+            "
+
+          ></iframe>
+
+        </div>
+
+      `;
+
+    }
+
+  }
+
+
+  /* =======================================================
+     DIRECT MP4 / VIDEO
+     ======================================================= */
+
+  return `
+
+    <video
+
+      controls
+
+      playsinline
+
+      style="
+        width:100%;
+        display:block;
+        max-height:520px;
+        background:#000;
+      "
+
+    >
+
+      <source
+        src="${url}"
+        type="video/mp4"
+      >
+
+      Browser kamu tidak mendukung
+      pemutaran video.
+
+    </video>
+
+  `;
+
+}
+
+
+/* =========================================================
+   QUESTION SLIDE
+   ========================================================= */
+
+function renderQuestionSlide(slide) {
+
+  const selected =
+    state.answers[state.currentSlide];
+
+
+  return `
+
+    <article
+      class="quiz-card"
+    >
+
+      <div class="pill soft">
+        PERTANYAAN
+      </div>
+
+
+      <h2>
+        ${slide.q || ""}
+      </h2>
+
+
+      <div class="options">
+
+        ${
+          slide.options
+            .map(
+              (option, index) => `
+
+                <button
+
+                  class="
+                    option
+                    ${
+                      selected === index
+                        ? "selected"
+                        : ""
+                    }
+                  "
+
+                  onclick="
+                    answerQuestion(${index})
+                  "
+
+                >
+
+                  <span>
+
+                    ${String
+                      .fromCharCode(65 + index)}
+
+                  </span>
+
+
+                  <b>
+                    ${option}
+                  </b>
+
+                </button>
+
+              `
+            )
+            .join("")
+        }
+
+      </div>
+
+
+      ${
+        selected !== undefined
+          ? `
+
+            <div
+              style="
+                margin-top:20px;
+                padding:12px 15px;
+                background:#e9f6ef;
+                color:#227047;
+                border-radius:10px;
+                font-size:12px;
+                font-weight:700;
+              "
+            >
+
+              ✓ Jawaban kamu sudah dipilih.
+
+            </div>
+
+          `
+          : ""
+      }
+
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   ANSWER QUESTION
+   ========================================================= */
+
+function answerQuestion(index) {
+
+  state.answers[state.currentSlide] =
+    index;
+
+  renderLearning();
+
+}
+
+
+/* =========================================================
+   PREVIOUS SLIDE
+   ========================================================= */
+
+function previousSlide() {
+
+  if (state.currentSlide <= 0) {
+    return;
+  }
+
+
+  state.currentSlide--;
+
+
+  renderLearning();
+
+}
+
+
+/* =========================================================
+   NEXT SLIDE
+   ========================================================= */
+
+function nextSlide() {
+
+  const slides = getSlides();
+
+  const current =
+    slides[state.currentSlide];
+
+
+  /* =======================================================
+     QUESTION HARUS DIJAWAB
+     ======================================================= */
+
+  if (
+    current &&
+    current.type === "question" &&
+    state.answers[state.currentSlide] === undefined
+  ) {
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     MASIH ADA SLIDE
+     ======================================================= */
+
+  if (
+    state.currentSlide <
+    slides.length - 1
+  ) {
+
+    state.currentSlide++;
+
+    renderLearning();
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     SLIDE TERAKHIR
+     ======================================================= */
+
+  state.screen = "result";
+
+  render();
+
+}
+
+
+/* =========================================================
+   CALCULATE RESULT
+   ========================================================= */
+
+function calculateResult() {
+
+  const questions = getQuestions();
+
+
+  let correct = 0;
+
+
+  questions.forEach(question => {
+
+    const slideIndex =
+      TRAINING.slides.indexOf(
+        question
+      );
+
+
+    const selected =
+      state.answers[slideIndex];
+
+
+    if (
+      selected !== undefined &&
+      selected === question.answer
+    ) {
+
+      correct++;
+
+    }
+
+  });
+
+
+  const total =
+    questions.length;
+
+
+  const score =
+    total > 0
+      ? Math.round(
+          (correct / total) * 100
+        )
+      : 0;
+
+
+  return {
+    total,
+    correct,
+    score,
+    passed:
+      score >= CONFIG.passingGrade
+  };
+
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+function renderResult() {
+
+  const result =
+    calculateResult();
+
+
+  const passed =
+    result.passed;
+
+
+  app.innerHTML = layout(`
+
+    <section class="result-page">
+
+      <div class="result-icon">
+
+        ${passed ? "✓" : "!"}
+
+      </div>
+
+
+      <div class="pill">
+
+        ${
+          passed
+            ? "TRAINING SELESAI"
+            : "BELUM LULUS"
+        }
+
+      </div>
+
+
+      <h2>
+
+        ${
+          passed
+            ? "Selamat, training selesai."
+            : "Training sudah selesai."
+        }
+
+      </h2>
+
+
+      <div class="score">
+
+        ${result.score}
+
+        <small>
+          /100
+        </small>
+
+      </div>
+
+
+      <div
+        class="
+          result-status
+          ${passed ? "pass" : "fail"}
+        "
+      >
+
+        ${
+          passed
+            ? "LULUS"
+            : "TIDAK LULUS"
+        }
+
+      </div>
+
+
+      <p class="muted">
+
+        ${state.participant.name},
+
+        kamu menjawab
+
+        <b>
+          ${result.correct}
+          dari
+          ${result.total}
+        </b>
+
+        soal dengan benar.
+
+      </p>
+
+
+      <div class="result-actions">
 
         <button
           class="primary"
-          onclick="nextMaterial()"
+          onclick="saveResult()"
+          id="save-result-button"
         >
-          ${isLast ? "Mulai Post Test" : "Berikutnya"}
-          →
+
+          Simpan Hasil
+
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="location.reload()"
+        >
+
+          Selesai
+
         </button>
 
       </div>
 
+
+      <div
+        id="save-status"
+        class="save-status"
+      ></div>
+
+
     </section>
+
   `);
+
 }
 
-function renderQuiz() {
-  const q = TRAINING.questions[state.questionIndex];
-  const total = TRAINING.questions.length;
-  app.innerHTML = layout(`
-    <section class="learning">
-      ${progress(state.questionIndex + 1, total)}
-      <div class="learning-meta"><span>POST TEST ${String(state.questionIndex+1).padStart(2,"0")} / ${String(total).padStart(2,"0")}</span><span>Pilih satu jawaban</span></div>
-      <article class="quiz-card">
-        <div class="pill soft">PERTANYAAN ${state.questionIndex+1}</div>
-        <h2>${q.q}</h2>
-        <div class="options">
-          ${q.options.map((o,i)=>`<button class="option" onclick="answer(${i})"><span>${String.fromCharCode(65+i)}</span><b>${o}</b></button>`).join("")}
-        </div>
-      </article>
-    </section>
-  `);
-}
 
-function renderResult() {
-  const correct = state.answers.filter((a,i)=>a === TRAINING.questions[i].answer).length;
-  const score = Math.round((correct / TRAINING.questions.length) * 100);
-  const passed = score >= CONFIG.passingGrade;
-  app.innerHTML = layout(`
-    <section class="result-page">
-      <div class="result-icon">${passed ? "✓" : "!"}</div>
-      <div class="pill">${passed ? "TRAINING SELESAI" : "BELUM LULUS"}</div>
-      <h2>${passed ? "Selamat, training selesai." : "Training sudah selesai."}</h2>
-      <div class="score">${score}<small>/100</small></div>
-      <div class="result-status ${passed ? "pass" : "fail"}">${passed ? "LULUS" : "TIDAK LULUS"}</div>
-      <p class="muted">${state.participant.name}, kamu menjawab <b>${correct} dari ${TRAINING.questions.length}</b> soal dengan benar.</p>
-      <div class="result-actions"><button class="primary" onclick="saveResult()">Simpan Hasil</button><button class="secondary" onclick="location.reload()">Selesai</button></div>
-      <div id="save-status" class="save-status"></div>
-    </section>
-  `);
-}
+/* =========================================================
+   SAVE RESULT TO GOOGLE SHEETS
+   ========================================================= */
 
-function goIdentity(){ state.screen="identity"; render(); }
-function startTraining(e){
-  e.preventDefault();
-  state.participant.name=document.getElementById("name").value.trim();
-  state.participant.email=document.getElementById("email").value.trim();
-  state.screen="material"; render();
-}
+async function saveResult() {
 
-function previousMaterial() {
-  if (state.materialIndex > 0) {
-    state.materialIndex--;
-    render();
+  if (state.isSaving) {
+    return;
   }
+
+
+  const result =
+    calculateResult();
+
+
+  const payload = {
+
+    timestamp:
+      new Date().toISOString(),
+
+    name:
+      state.participant.name,
+
+    email:
+      state.participant.email,
+
+    training:
+      TRAINING.title,
+
+    totalQuestions:
+      result.total,
+
+    correct:
+      result.correct,
+
+    score:
+      result.score,
+
+    status:
+      result.passed
+        ? "LULUS"
+        : "TIDAK LULUS"
+
+  };
+
+
+  const el =
+    document.getElementById(
+      "save-status"
+    );
+
+
+  const button =
+    document.getElementById(
+      "save-result-button"
+    );
+
+
+  if (
+    !CONFIG.googleScriptUrl
+  ) {
+
+    el.innerHTML = `
+      Demo selesai.
+      <b>
+        Google Sheets belum dikonfigurasi.
+      </b>
+    `;
+
+    return;
+
+  }
+
+
+  state.isSaving = true;
+
+
+  if (button) {
+
+    button.disabled = true;
+
+    button.textContent =
+      "Menyimpan...";
+
+  }
+
+
+  el.textContent =
+    "Menyimpan hasil ke Google Sheets...";
+
+
+  try {
+
+    await fetch(
+      CONFIG.googleScriptUrl,
+      {
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+
+        body:
+          JSON.stringify(payload)
+      }
+    );
+
+
+    el.innerHTML = `
+      <span
+        style="
+          color:#227047;
+          font-weight:700;
+        "
+      >
+        ✓ Hasil berhasil dikirim ke
+        Google Sheets.
+      </span>
+    `;
+
+
+    if (button) {
+
+      button.textContent =
+        "✓ Hasil Tersimpan";
+
+    }
+
+
+  } catch (error) {
+
+    console.error(
+      "Gagal menyimpan hasil:",
+      error
+    );
+
+
+    el.innerHTML = `
+      <span
+        style="
+          color:#a53b34;
+          font-weight:700;
+        "
+      >
+        Gagal mengirim hasil.
+        Silakan coba lagi.
+      </span>
+    `;
+
+
+    if (button) {
+
+      button.disabled = false;
+
+      button.textContent =
+        "Coba Lagi";
+
+    }
+
+
+    state.isSaving = false;
+
+  }
+
 }
 
-function nextMaterial(){
-  if(state.materialIndex < TRAINING.materials.length-1){ state.materialIndex++; }
-  else { state.screen="quiz"; }
-  render();
-}
-function answer(i){
-  state.answers[state.questionIndex]=i;
-  if(state.questionIndex < TRAINING.questions.length-1) state.questionIndex++;
-  else state.screen="result";
-  render();
-}
-async function saveResult(){
-  const correct=state.answers.filter((a,i)=>a===TRAINING.questions[i].answer).length;
-  const score=Math.round(correct/TRAINING.questions.length*100);
-  const payload={timestamp:new Date().toISOString(),...state.participant,training:TRAINING.title,totalQuestions:TRAINING.questions.length,correct,score,status:score>=CONFIG.passingGrade?"LULUS":"TIDAK LULUS"};
-  const el=document.getElementById("save-status");
-  if(!CONFIG.googleScriptUrl){el.innerHTML="Demo selesai. <b>Google Sheets belum dikonfigurasi.</b><br>Isi URL Google Apps Script di <code>app.js</code> untuk mengaktifkan penyimpanan."; return;}
-  el.textContent="Menyimpan hasil...";
-  try{
-    await fetch(CONFIG.googleScriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
-    el.innerHTML="✓ Hasil berhasil dikirim.";
-  }catch(err){el.innerHTML="Gagal mengirim hasil. Silakan coba lagi."; console.error(err);}
-}
+
+/* =========================================================
+   START APPLICATION
+   ========================================================= */
+
 render();
