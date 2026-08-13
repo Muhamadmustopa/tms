@@ -58,7 +58,7 @@ const TRAINING = {
         "Safe commuting awareness dirancang untuk seluruh karyawan untuk selalu waspada terhadap resiko apapun",
 
       image:
-         "./assets/images/Slide2.png",
+         "./assets/images/Slide2.PNG",
 
       points: [
         "Laporkan kondisi yang tidak aman"
@@ -80,7 +80,7 @@ const TRAINING = {
         "Berbagai kecelakaan kerja dapat terjadi karena kombinasi tindakan tidak aman dan kondisi lingkungan yang tidak aman. Memahami sumber risiko membantu kita melakukan pencegahan sejak awal.",
 
       image:
-        "./assets/images/Slide3.png",
+        "./assets/images/Slide3.PNG",
     },
 
 
