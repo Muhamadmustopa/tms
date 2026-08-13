@@ -1,7 +1,7 @@
 const TRAINING = {
   title: "Learning and Development",
   subtitle: "Materi Safe Commuting Awareness",
-  duration: "10 Menit",
+  
 
   slides: [
 
@@ -112,10 +112,10 @@ const TRAINING = {
       type: "question",
 
       q:
-        "Apa tujuan utama penerapan K3?",
+        "Apa tujuan dari safe commuting awereness",
 
       options: [
-        "Mempercepat pekerjaan tanpa aturan",
+        "Menjaga keselamatan untuk diri kita dan orang lain",
         "Menciptakan tempat kerja yang aman dan sehat",
         "Mengurangi jumlah karyawan",
         "Menghilangkan seluruh pekerjaan"
@@ -132,13 +132,13 @@ const TRAINING = {
       type: "question",
 
       q:
-        "Manakah yang merupakan contoh potensi bahaya?",
+        "Menurut pusat informasi data kriminal nasional berapa jumlah angka kecelakaan pada sepeda motor? ",
 
       options: [
-        "Area kerja tertata",
-        "APD sesuai standar",
-        "Kabel berserakan di jalur berjalan",
-        "Briefing keselamatan"
+        "1.232.643",
+        "1.278.643",
+        "1.332.743",
+        "92.876"
       ],
 
       answer: 2
