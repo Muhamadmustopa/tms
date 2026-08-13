@@ -1,6 +1,10 @@
-const STORAGE_KEY = "TMS_TRAINING_STATE";
+// =========================================================
+// TMS - STATE MANAGEMENT
+// =========================================================
 
-const state = {
+export const STORAGE_KEY = "TMS_TRAINING_STATE";
+
+export const state = {
 
   screen: "home",
 
@@ -14,10 +18,15 @@ const state = {
   answers: {},
 
   isSaving: false
+
 };
 
 
-function saveState() {
+// =========================================================
+// SAVE STATE
+// =========================================================
+
+export function saveState() {
 
   try {
 
@@ -33,6 +42,7 @@ function saveState() {
       currentSlide: state.currentSlide,
 
       answers: state.answers
+
     };
 
     localStorage.setItem(
@@ -52,7 +62,11 @@ function saveState() {
 }
 
 
-function loadState() {
+// =========================================================
+// LOAD STATE
+// =========================================================
+
+export function loadState() {
 
   try {
 
@@ -70,8 +84,10 @@ function loadState() {
       return false;
     }
 
+
     state.screen =
       data.screen || "home";
+
 
     state.participant =
       data.participant || {
@@ -79,34 +95,16 @@ function loadState() {
         email: ""
       };
 
+
     state.currentSlide =
       Number.isInteger(data.currentSlide)
         ? data.currentSlide
         : 0;
 
+
     state.answers =
       data.answers || {};
 
-    // Proteksi slide
-    const totalSlides =
-      TRAINING.slides.length;
-
-    if (totalSlides === 0) {
-
-      state.currentSlide = 0;
-
-    } else if (state.currentSlide < 0) {
-
-      state.currentSlide = 0;
-
-    } else if (
-      state.currentSlide >= totalSlides
-    ) {
-
-      state.currentSlide =
-        totalSlides - 1;
-
-    }
 
     return true;
 
@@ -128,7 +126,11 @@ function loadState() {
 }
 
 
-function clearTrainingState() {
+// =========================================================
+// CLEAR STATE
+// =========================================================
+
+export function clearTrainingState() {
 
   localStorage.removeItem(
     STORAGE_KEY
