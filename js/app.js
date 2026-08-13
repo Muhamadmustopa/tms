@@ -1,18 +1,1428 @@
-const app=document.getElementById("app");
-function layout(content,eyebrow="TMS"){return `<div class="shell"><header class="topbar"><div class="brand"><span class="brand-mark">T</span><span>${eyebrow}</span></div><span class="mini-label">TRAINING & LEARNING</span></header>${content}<footer>Training Management System • Versi 1.0</footer></div>`}
-function render(){if(state.screen==="home")return renderHome();if(state.screen==="identity")return renderIdentity();if(state.screen==="learning")return renderLearning();if(state.screen==="result")return renderResult();state.screen="home";renderHome()}
-function renderHome(){app.innerHTML=layout(`<section class="hero"><div class="hero-copy"><div class="pill">● ONLINE TRAINING</div><h1>Belajar singkat.<br><em>Paham lebih cepat.</em></h1><p>Materi, gambar, video, dan evaluasi dalam satu pengalaman belajar yang sederhana dan interaktif.</p><button class="primary" onclick="goIdentity()">Mulai Training <span>→</span></button></div><div class="hero-card"><div class="card-icon">▣</div><div><strong>${escapeHtml(TRAINING.title)}</strong><small>${escapeHtml(TRAINING.subtitle)}</small></div><div class="stats"><span><b>${getMaterialCount()}</b>Materi</span><span><b>${getQuestionCount()}</b>Soal</span><span><b>${escapeHtml(TRAINING.duration||"-")}</b>Durasi</span></div><div class="slide-count">${getSlides().length} slide pembelajaran</div></div></section><section class="feature-row"><div><span>01</span><b>Pelajari materi</b><p>Materi disajikan secara bertahap melalui slide yang interaktif.</p></div><div><span>02</span><b>Tonton & pahami</b><p>Materi dapat dilengkapi gambar, grafik, dan video.</p></div><div><span>03</span><b>Kerjakan evaluasi</b><p>Soal dapat ditempatkan di antara materi sesuai alur training.</p></div></section>`)}
-function renderIdentity(){app.innerHTML=layout(`<section class="form-page"><div class="section-kicker">01 / IDENTITAS PESERTA</div><h2>Sebelum mulai,<br>kenalkan diri dulu.</h2><p class="muted">Data ini digunakan untuk mencatat hasil training.</p><form onsubmit="startTraining(event)" class="identity-form"><label>Nama lengkap<input id="name" required placeholder="Contoh: Ahmad Yani"></label><label>Email <span class="optional">(opsional)</span><input id="email" type="email" placeholder="nama@perusahaan.com"></label><button class="primary full" type="submit">Mulai Training <span>→</span></button></form></section>`)}
-function goIdentity(){state.screen="identity";saveState();render()}
-function startTraining(e){e.preventDefault();state.participant.name=document.getElementById("name").value.trim();state.participant.email=document.getElementById("email").value.trim();state.currentSlide=0;state.answers={};state.isSaving=false;state.screen="learning";saveState();render()}
-function renderLearning(){const slides=getSlides(),total=slides.length,slide=slides[state.currentSlide];if(!slide){state.screen="result";saveState();return render()}let content=slide.type==="material"?renderMaterialSlide(slide):slide.type==="image"?renderImageSlide(slide):slide.type==="video"?renderVideoSlide(slide):slide.type==="question"?renderQuestionSlide(slide):`<article class="material-card single"><div class="material-content"><div class="pill soft">ERROR</div><h2>Tipe slide tidak dikenali</h2><p>Tipe slide <code>${escapeHtml(slide.type)}</code> belum didukung.</p></div></article>`;const first=state.currentSlide===0,last=state.currentSlide===total-1,q=slide.type==="question",selected=q?state.answers[state.currentSlide]:undefined,canNext=!q||selected!==undefined;app.innerHTML=layout(`<section class="learning">${progress(state.currentSlide+1,total)}<div class="learning-meta"><span>SLIDE ${String(state.currentSlide+1).padStart(2,"0")} / ${String(total).padStart(2,"0")}</span><span>${escapeHtml(TRAINING.title)}</span></div>${content}<div class="nav-row"><button class="secondary" onclick="previousSlide()" ${first?"disabled":""}>← Sebelumnya</button><span class="nav-hint muted">${q?(selected===undefined?"Pilih salah satu jawaban.":"Jawaban sudah dipilih."):(last?"Training selesai.":"Lanjut ke slide berikutnya.")}</span><button class="primary" onclick="nextSlide()" ${!canNext?"disabled":""}>${last?"Lihat Hasil":"Berikutnya"} →</button></div></section>`)}
-function renderMaterialSlide(s){const points=Array.isArray(s.points)?s.points:[];return `<article class="material-card"><div class="material-number">${String(state.currentSlide+1).padStart(2,"0")}</div><div class="material-content"><div class="pill soft">MATERI PEMBELAJARAN</div><h2>${escapeHtml(s.title||"")}</h2>${s.image?`<div class="material-image"><img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title||"Materi")}" onerror="this.parentElement.classList.add('image-error');this.style.display='none'"><div class="image-error-text">Gambar tidak dapat dimuat.</div></div>`:""}<p>${escapeHtml(s.text||"")}</p>${points.length?`<div class="points">${points.map(p=>`<div><span>✓</span>${escapeHtml(p)}</div>`).join("")}</div>`:""}</div></article>`}
-function renderImageSlide(s){return `<article class="material-card single"><div class="material-content"><div class="pill soft">VISUAL / GRAFIK</div><h2>${escapeHtml(s.title||"")}</h2>${s.image?`<div class="graphic-image"><img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title||"Gambar training")}" onerror="this.parentElement.classList.add('image-error');this.style.display='none'"><div class="image-error-text">Gambar tidak dapat dimuat.</div></div>`:`<div class="image-placeholder">Gambar belum tersedia.</div>`}<p>${escapeHtml(s.text||"")}</p></div></article>`}
-function renderVideoSlide(s){return `<article class="material-card single"><div class="material-content"><div class="pill soft">VIDEO PEMBELAJARAN</div><h2>${escapeHtml(s.title||"")}</h2><div class="video-card">${getVideoEmbed(s.video)}</div><p>${escapeHtml(s.text||"")}</p></div></article>`}
-function renderQuestionSlide(s){const selected=state.answers[state.currentSlide];return `<article class="quiz-card"><div class="pill soft">PERTANYAAN</div><h2>${escapeHtml(s.q||"")}</h2><div class="options">${s.options.map((o,i)=>`<button class="option ${selected===i?"selected":""}" onclick="answerQuestion(${i})" type="button"><span>${String.fromCharCode(65+i)}</span><b>${escapeHtml(o)}</b></button>`).join("")}</div>${selected!==undefined?`<div class="answer-selected">✓ Jawaban kamu sudah dipilih.</div>`:""}</article>`}
-function answerQuestion(i){state.answers[state.currentSlide]=i;saveState();renderLearning()}
-function previousSlide(){if(state.currentSlide<=0)return;state.currentSlide--;saveState();renderLearning()}
-function nextSlide(){const slides=getSlides(),current=slides[state.currentSlide];if(current&&current.type==="question"&&state.answers[state.currentSlide]===undefined)return;if(state.currentSlide<slides.length-1){state.currentSlide++;saveState();return renderLearning()}state.screen="result";saveState();render()}
-function renderResult(){const r=calculateResult(),passed=r.passed;app.innerHTML=layout(`<section class="result-page"><div class="result-icon">${passed?"✓":"!"}</div><div class="pill">${passed?"TRAINING SELESAI":"BELUM LULUS"}</div><h2>${passed?"Selamat, training selesai.":"Training sudah selesai."}</h2><div class="score">${r.score}<small>/100</small></div><div class="result-status ${passed?"pass":"fail"}">${passed?"LULUS":"TIDAK LULUS"}</div><p class="muted">${escapeHtml(state.participant.name)}, kamu menjawab <b>${r.correct} dari ${r.total}</b> soal dengan benar.</p><div class="result-actions"><button class="primary" onclick="saveResult()" id="save-result-button">Simpan Hasil</button><button class="secondary" onclick="finishTraining()">Selesai</button></div><div id="save-status" class="save-status"></div></section>`)}
-function finishTraining(){clearTrainingState();state.screen="home";state.currentSlide=0;state.answers={};state.participant={name:"",email:""};state.isSaving=false;render()}
-const restored=loadState();if(restored)render();else{state.screen="home";render()}
+/* =========================================================
+   TMS - APPLICATION
+   File: js/app.js
+
+   Dependency:
+   - config.js
+   - training-data.js
+   - state.js
+   - functions.js
+
+   IMPORTANT:
+   Semua file menggunakan JavaScript biasa.
+   Tidak menggunakan import / export.
+========================================================= */
+
+const app = document.getElementById("app");
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+function layout(content, eyebrow = "TMS") {
+
+  return `
+    <div class="shell">
+
+      <header class="topbar">
+
+        <div class="brand">
+          <span class="brand-mark">T</span>
+          <span>${escapeHtml(eyebrow)}</span>
+        </div>
+
+        <span class="mini-label">
+          TRAINING & LEARNING
+        </span>
+
+      </header>
+
+      ${content}
+
+      <footer>
+        Training Management System • Versi 1.0
+      </footer>
+
+    </div>
+  `;
+}
+
+
+/* =========================================================
+   RENDER ROUTER
+========================================================= */
+
+function render() {
+
+  if (!app) {
+    console.error("TMS: Element #app tidak ditemukan.");
+    return;
+  }
+
+  switch (state.screen) {
+
+    case "home":
+      renderHome();
+      break;
+
+    case "identity":
+      renderIdentity();
+      break;
+
+    case "learning":
+      renderLearning();
+      break;
+
+    case "result":
+      renderResult();
+      break;
+
+    default:
+      state.screen = "home";
+      renderHome();
+      break;
+
+  }
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function renderHome() {
+
+  const slides = getSlides();
+  const materialCount = getMaterialCount();
+  const questionCount = getQuestionCount();
+
+  app.innerHTML = layout(`
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <div class="pill">
+          ● ONLINE TRAINING
+        </div>
+
+        <h1>
+          Belajar singkat.
+          <br>
+          <em>Paham lebih cepat.</em>
+        </h1>
+
+        <p>
+          Materi, gambar, video, dan evaluasi
+          dalam satu pengalaman belajar yang
+          sederhana dan interaktif.
+        </p>
+
+        <button
+          class="primary"
+          type="button"
+          onclick="goIdentity()"
+        >
+          Mulai Training
+          <span>→</span>
+        </button>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="card-icon">
+          ▣
+        </div>
+
+        <div>
+
+          <strong>
+            ${escapeHtml(TRAINING.title)}
+          </strong>
+
+          <small>
+            ${escapeHtml(TRAINING.subtitle)}
+          </small>
+
+        </div>
+
+
+        <div class="stats">
+
+          <span>
+            <b>${materialCount}</b>
+            Materi
+          </span>
+
+          <span>
+            <b>${questionCount}</b>
+            Soal
+          </span>
+
+          <span>
+            <b>${escapeHtml(TRAINING.duration || "-")}</b>
+            Durasi
+          </span>
+
+        </div>
+
+
+        <div class="slide-count">
+          ${slides.length} slide pembelajaran
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="feature-row">
+
+      <div>
+        <span>01</span>
+        <b>Pelajari materi</b>
+
+        <p>
+          Materi disajikan secara bertahap
+          melalui slide yang interaktif.
+        </p>
+      </div>
+
+
+      <div>
+        <span>02</span>
+        <b>Tonton & pahami</b>
+
+        <p>
+          Materi dapat dilengkapi gambar,
+          grafik, dan video.
+        </p>
+      </div>
+
+
+      <div>
+        <span>03</span>
+        <b>Kerjakan evaluasi</b>
+
+        <p>
+          Soal dapat ditempatkan di antara
+          materi sesuai alur training.
+        </p>
+      </div>
+
+    </section>
+
+  `);
+}
+
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+function renderIdentity() {
+
+  app.innerHTML = layout(`
+
+    <section class="form-page">
+
+      <div class="section-kicker">
+        01 / IDENTITAS PESERTA
+      </div>
+
+
+      <h2>
+        Sebelum mulai,
+        <br>
+        kenalkan diri dulu.
+      </h2>
+
+
+      <p class="muted">
+        Data ini digunakan untuk mencatat
+        hasil training.
+      </p>
+
+
+      <form
+        class="identity-form"
+        onsubmit="startTraining(event)"
+      >
+
+        <label>
+
+          Nama lengkap
+
+          <input
+            id="name"
+            name="name"
+            required
+            autocomplete="name"
+            placeholder="Contoh: Ahmad Yani"
+          >
+
+        </label>
+
+
+        <label>
+
+          Email
+
+          <span class="optional">
+            (opsional)
+          </span>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="nama@perusahaan.com"
+          >
+
+        </label>
+
+
+        <button
+          class="primary full"
+          type="submit"
+        >
+          Mulai Training
+          <span>→</span>
+        </button>
+
+      </form>
+
+    </section>
+
+  `);
+}
+
+
+/* =========================================================
+   START TRAINING
+========================================================= */
+
+function goIdentity() {
+
+  state.screen = "identity";
+
+  state.currentSlide = 0;
+
+  saveState();
+
+  render();
+
+}
+
+
+function startTraining(event) {
+
+  event.preventDefault();
+
+  const nameInput =
+    document.getElementById("name");
+
+  const emailInput =
+    document.getElementById("email");
+
+
+  state.participant = {
+
+    name:
+      nameInput
+        ? nameInput.value.trim()
+        : "",
+
+    email:
+      emailInput
+        ? emailInput.value.trim()
+        : ""
+
+  };
+
+
+  state.currentSlide = 0;
+
+  state.answers = {};
+
+  state.isSaving = false;
+
+  state.screen = "learning";
+
+
+  saveState();
+
+  render();
+
+}
+
+
+/* =========================================================
+   LEARNING ENGINE
+========================================================= */
+
+function renderLearning() {
+
+  const slides = getSlides();
+
+  const totalSlides =
+    slides.length;
+
+  const slide =
+    slides[state.currentSlide];
+
+
+  /* -------------------------------------------------------
+     Jika slide tidak ditemukan
+  ------------------------------------------------------- */
+
+  if (!slide) {
+
+    state.screen = "result";
+
+    saveState();
+
+    render();
+
+    return;
+  }
+
+
+  let content = "";
+
+
+  /* -------------------------------------------------------
+     Tentukan tipe slide
+  ------------------------------------------------------- */
+
+  switch (slide.type) {
+
+    case "material":
+
+      content =
+        renderMaterialSlide(slide);
+
+      break;
+
+
+    case "image":
+
+      content =
+        renderImageSlide(slide);
+
+      break;
+
+
+    case "video":
+
+      content =
+        renderVideoSlide(slide);
+
+      break;
+
+
+    case "question":
+
+      content =
+        renderQuestionSlide(slide);
+
+      break;
+
+
+    default:
+
+      content = `
+
+        <article class="material-card single">
+
+          <div class="material-content">
+
+            <div class="pill soft">
+              ERROR
+            </div>
+
+            <h2>
+              Tipe slide tidak dikenali
+            </h2>
+
+            <p>
+              Tipe slide
+              <code>
+                ${escapeHtml(slide.type)}
+              </code>
+              belum didukung.
+            </p>
+
+          </div>
+
+        </article>
+
+      `;
+
+      break;
+
+  }
+
+
+  const isFirst =
+    state.currentSlide === 0;
+
+
+  const isLast =
+    state.currentSlide ===
+    totalSlides - 1;
+
+
+  const isQuestion =
+    slide.type === "question";
+
+
+  const selectedAnswer =
+    isQuestion
+      ? state.answers[state.currentSlide]
+      : undefined;
+
+
+  const canNext =
+    !isQuestion ||
+    selectedAnswer !== undefined;
+
+
+  /* -------------------------------------------------------
+     Render halaman learning
+  ------------------------------------------------------- */
+
+  app.innerHTML = layout(`
+
+    <section class="learning">
+
+
+      ${progress(
+        state.currentSlide + 1,
+        totalSlides
+      )}
+
+
+      <div class="learning-meta">
+
+        <span>
+
+          SLIDE
+
+          ${String(
+            state.currentSlide + 1
+          ).padStart(2, "0")}
+
+          /
+
+          ${String(
+            totalSlides
+          ).padStart(2, "0")}
+
+        </span>
+
+
+        <span>
+
+          ${escapeHtml(
+            TRAINING.title
+          )}
+
+        </span>
+
+      </div>
+
+
+      ${content}
+
+
+      <div class="nav-row">
+
+
+        <button
+          class="secondary"
+          type="button"
+          onclick="previousSlide()"
+          ${isFirst ? "disabled" : ""}
+        >
+
+          ← Sebelumnya
+
+        </button>
+
+
+        <span class="nav-hint muted">
+
+          ${
+            isQuestion
+
+              ? (
+
+                  selectedAnswer === undefined
+
+                    ? "Pilih salah satu jawaban."
+
+                    : "Jawaban sudah dipilih."
+
+                )
+
+              : (
+
+                  isLast
+
+                    ? "Training selesai."
+
+                    : "Lanjut ke slide berikutnya."
+
+                )
+
+          }
+
+        </span>
+
+
+        <button
+          class="primary"
+          type="button"
+          onclick="nextSlide()"
+          ${!canNext ? "disabled" : ""}
+        >
+
+          ${
+            isLast
+              ? "Lihat Hasil"
+              : "Berikutnya"
+          }
+
+          →
+
+        </button>
+
+
+      </div>
+
+
+    </section>
+
+  `);
+
+}
+
+
+/* =========================================================
+   MATERIAL SLIDE
+========================================================= */
+
+function renderMaterialSlide(slide) {
+
+  const points =
+    Array.isArray(slide.points)
+      ? slide.points
+      : [];
+
+
+  const imageHtml =
+
+    slide.image
+
+      ? `
+
+        <div class="material-image">
+
+          <img
+            src="${escapeHtml(slide.image)}"
+            alt="${escapeHtml(
+              slide.title || "Materi"
+            )}"
+            onerror="
+              this.parentElement.classList.add('image-error');
+              this.style.display='none';
+            "
+          >
+
+          <div class="image-error-text">
+            Gambar tidak dapat dimuat.
+          </div>
+
+        </div>
+
+      `
+
+      : "";
+
+
+  const pointsHtml =
+
+    points.length
+
+      ? `
+
+        <div class="points">
+
+          ${points.map(point => `
+
+            <div>
+
+              <span>
+                ✓
+              </span>
+
+              ${escapeHtml(point)}
+
+            </div>
+
+          `).join("")}
+
+        </div>
+
+      `
+
+      : "";
+
+
+  return `
+
+    <article class="material-card">
+
+
+      <div class="material-number">
+
+        ${String(
+          state.currentSlide + 1
+        ).padStart(2, "0")}
+
+      </div>
+
+
+      <div class="material-content">
+
+
+        <div class="pill soft">
+
+          MATERI PEMBELAJARAN
+
+        </div>
+
+
+        <h2>
+
+          ${escapeHtml(
+            slide.title || ""
+          )}
+
+        </h2>
+
+
+        ${imageHtml}
+
+
+        <p>
+
+          ${escapeHtml(
+            slide.text || ""
+          )}
+
+        </p>
+
+
+        ${pointsHtml}
+
+
+      </div>
+
+
+    </article>
+
+  `;
+}
+
+
+/* =========================================================
+   IMAGE / GRAPHIC SLIDE
+========================================================= */
+
+function renderImageSlide(slide) {
+
+  const imageHtml =
+
+    slide.image
+
+      ? `
+
+        <div class="graphic-image">
+
+          <img
+            src="${escapeHtml(slide.image)}"
+            alt="${escapeHtml(
+              slide.title ||
+              "Gambar training"
+            )}"
+            onerror="
+              this.parentElement.classList.add('image-error');
+              this.style.display='none';
+            "
+          >
+
+          <div class="image-error-text">
+            Gambar tidak dapat dimuat.
+          </div>
+
+        </div>
+
+      `
+
+      : `
+
+        <div class="image-placeholder">
+
+          Gambar belum tersedia.
+
+        </div>
+
+      `;
+
+
+  return `
+
+    <article class="material-card single">
+
+      <div class="material-content">
+
+
+        <div class="pill soft">
+
+          VISUAL / GRAFIK
+
+        </div>
+
+
+        <h2>
+
+          ${escapeHtml(
+            slide.title || ""
+          )}
+
+        </h2>
+
+
+        ${imageHtml}
+
+
+        <p>
+
+          ${escapeHtml(
+            slide.text || ""
+          )}
+
+        </p>
+
+
+      </div>
+
+    </article>
+
+  `;
+}
+
+
+/* =========================================================
+   VIDEO SLIDE
+========================================================= */
+
+function renderVideoSlide(slide) {
+
+  return `
+
+    <article class="material-card single">
+
+      <div class="material-content">
+
+
+        <div class="pill soft">
+
+          VIDEO PEMBELAJARAN
+
+        </div>
+
+
+        <h2>
+
+          ${escapeHtml(
+            slide.title || ""
+          )}
+
+        </h2>
+
+
+        <div class="video-card">
+
+          ${getVideoEmbed(
+            slide.video
+          )}
+
+        </div>
+
+
+        <p>
+
+          ${escapeHtml(
+            slide.text || ""
+          )}
+
+        </p>
+
+
+      </div>
+
+    </article>
+
+  `;
+}
+
+
+/* =========================================================
+   QUESTION SLIDE
+========================================================= */
+
+function renderQuestionSlide(slide) {
+
+  const selected =
+    state.answers[state.currentSlide];
+
+
+  const options =
+    Array.isArray(slide.options)
+      ? slide.options
+      : [];
+
+
+  return `
+
+    <article class="quiz-card">
+
+
+      <div class="pill soft">
+
+        PERTANYAAN
+
+      </div>
+
+
+      <h2>
+
+        ${escapeHtml(
+          slide.q || ""
+        )}
+
+      </h2>
+
+
+      <div class="options">
+
+
+        ${options.map(
+          (option, index) => `
+
+            <button
+
+              class="
+                option
+                ${
+                  selected === index
+                    ? "selected"
+                    : ""
+                }
+              "
+
+              type="button"
+
+              onclick="
+                answerQuestion(${index})
+              "
+
+            >
+
+              <span>
+
+                ${String.fromCharCode(
+                  65 + index
+                )}
+
+              </span>
+
+
+              <b>
+
+                ${escapeHtml(
+                  option
+                )}
+
+              </b>
+
+            </button>
+
+          `
+        ).join("")}
+
+
+      </div>
+
+
+      ${
+        selected !== undefined
+
+          ? `
+
+            <div class="answer-selected">
+
+              ✓ Jawaban kamu sudah dipilih.
+
+            </div>
+
+          `
+
+          : ""
+
+      }
+
+
+    </article>
+
+  `;
+}
+
+
+/* =========================================================
+   ANSWER QUESTION
+========================================================= */
+
+function answerQuestion(index) {
+
+  state.answers[
+    state.currentSlide
+  ] = index;
+
+
+  saveState();
+
+  renderLearning();
+
+}
+
+
+/* =========================================================
+   PREVIOUS SLIDE
+========================================================= */
+
+function previousSlide() {
+
+  if (
+    state.currentSlide <= 0
+  ) {
+
+    return;
+
+  }
+
+
+  state.currentSlide--;
+
+  saveState();
+
+  renderLearning();
+
+}
+
+
+/* =========================================================
+   NEXT SLIDE
+========================================================= */
+
+function nextSlide() {
+
+  const slides =
+    getSlides();
+
+
+  const current =
+    slides[state.currentSlide];
+
+
+  /* -------------------------------------------------------
+     Question wajib dijawab
+  ------------------------------------------------------- */
+
+  if (
+
+    current &&
+
+    current.type === "question" &&
+
+    state.answers[
+      state.currentSlide
+    ] === undefined
+
+  ) {
+
+    return;
+
+  }
+
+
+  /* -------------------------------------------------------
+     Masih ada slide berikutnya
+  ------------------------------------------------------- */
+
+  if (
+
+    state.currentSlide <
+    slides.length - 1
+
+  ) {
+
+    state.currentSlide++;
+
+    saveState();
+
+    renderLearning();
+
+    return;
+
+  }
+
+
+  /* -------------------------------------------------------
+     Slide terakhir
+  ------------------------------------------------------- */
+
+  state.screen =
+    "result";
+
+
+  saveState();
+
+  render();
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function renderResult() {
+
+  const result =
+    calculateResult();
+
+
+  const passed =
+    result.passed;
+
+
+  app.innerHTML = layout(`
+
+    <section class="result-page">
+
+
+      <div class="result-icon">
+
+        ${passed ? "✓" : "!"}
+
+      </div>
+
+
+      <div class="pill">
+
+        ${
+          passed
+            ? "TRAINING SELESAI"
+            : "BELUM LULUS"
+        }
+
+      </div>
+
+
+      <h2>
+
+        ${
+          passed
+            ? "Selamat, training selesai."
+            : "Training sudah selesai."
+        }
+
+      </h2>
+
+
+      <div class="score">
+
+        ${result.score}
+
+        <small>
+          /100
+        </small>
+
+      </div>
+
+
+      <div
+        class="
+          result-status
+          ${passed ? "pass" : "fail"}
+        "
+      >
+
+        ${
+          passed
+            ? "LULUS"
+            : "TIDAK LULUS"
+        }
+
+      </div>
+
+
+      <p class="muted">
+
+        ${escapeHtml(
+          state.participant.name
+        )}
+
+        kamu menjawab
+
+        <b>
+
+          ${result.correct}
+
+          dari
+
+          ${result.total}
+
+        </b>
+
+        soal dengan benar.
+
+      </p>
+
+
+      <div class="result-actions">
+
+
+        <button
+          class="primary"
+          type="button"
+          onclick="saveResult()"
+          id="save-result-button"
+        >
+
+          Simpan Hasil
+
+        </button>
+
+
+        <button
+          class="secondary"
+          type="button"
+          onclick="finishTraining()"
+        >
+
+          Selesai
+
+        </button>
+
+
+      </div>
+
+
+      <div
+        id="save-status"
+        class="save-status"
+      ></div>
+
+
+    </section>
+
+  `);
+
+}
+
+
+/* =========================================================
+   FINISH TRAINING
+========================================================= */
+
+function finishTraining() {
+
+  clearTrainingState();
+
+
+  state.screen =
+    "home";
+
+
+  state.currentSlide =
+    0;
+
+
+  state.answers =
+    {};
+
+
+  state.participant = {
+
+    name: "",
+
+    email: ""
+
+  };
+
+
+  state.isSaving =
+    false;
+
+
+  render();
+
+}
+
+
+/* =========================================================
+   START APPLICATION
+========================================================= */
+
+function bootTMS() {
+
+  console.log(
+    "TMS: aplikasi dimulai."
+  );
+
+
+  try {
+
+    const restored =
+      loadState();
+
+
+    if (restored) {
+
+      console.log(
+        "TMS: progress sebelumnya dipulihkan."
+      );
+
+      render();
+
+      return;
+
+    }
+
+
+    state.screen =
+      "home";
+
+
+    state.currentSlide =
+      0;
+
+
+    state.answers =
+      {};
+
+
+    render();
+
+  }
+
+
+  catch (error) {
+
+    console.error(
+      "TMS: gagal menjalankan aplikasi.",
+      error
+    );
+
+
+    if (app) {
+
+      app.innerHTML = `
+
+        <div
+          style="
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:30px;
+            font-family:Inter,Arial,sans-serif;
+            background:#f7f8fa;
+          "
+        >
+
+
+          <div
+            style="
+              max-width:600px;
+              width:100%;
+              background:#fff;
+              border:1px solid #e5e7eb;
+              border-radius:16px;
+              padding:30px;
+              box-shadow:0 10px 30px rgba(0,0,0,.06);
+            "
+          >
+
+
+            <h2 style="margin-top:0;">
+
+              TMS gagal dimuat
+
+            </h2>
+
+
+            <p>
+
+              Terjadi error pada JavaScript.
+
+              Silakan buka Developer Console
+              (F12 → Console) untuk melihat
+              detailnya.
+
+            </p>
+
+
+            <pre
+              style="
+                white-space:pre-wrap;
+                background:#f3f4f6;
+                padding:15px;
+                border-radius:10px;
+                font-size:12px;
+                overflow:auto;
+              "
+            >${escapeHtml(
+              error.message ||
+              String(error)
+            )}</pre>
+
+
+          </div>
+
+
+        </div>
+
+      `;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   RUN APPLICATION
+========================================================= */
+
+bootTMS();
