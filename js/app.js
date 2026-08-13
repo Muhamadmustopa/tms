@@ -104,20 +104,16 @@ function renderHome() {
       <div class="hero-copy">
 
         <div class="pill">
-          ● ONLINE TRAINING
+          ● LnD
         </div>
 
         <h1>
-          Belajar singkat.
+          Learning and Development Program
           <br>
-          <em>Paham lebih cepat.</em>
+          <em></em>
         </h1>
 
-        <p>
-          Materi, gambar, video, dan evaluasi
-          dalam satu pengalaman belajar yang
-          sederhana dan interaktif.
-        </p>
+        <p>emahaman dasar dalam materi safe commuting awereness</p>
 
         <button
           class="primary"
@@ -1299,12 +1295,10 @@ function bootTMS() {
     "TMS: aplikasi dimulai."
   );
 
-
   try {
 
     const restored =
       loadState();
-
 
     if (restored) {
 
@@ -1342,7 +1336,6 @@ function bootTMS() {
       "TMS: gagal menjalankan aplikasi.",
       error
     );
-
 
     if (app) {
 
