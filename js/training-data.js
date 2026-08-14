@@ -16,7 +16,7 @@ const TRAINING = {
       text:
         "upaya meningkatkan kewaspadaan untuk diri kita.",
 
-      image: "./assets/images/1.PNG",
+      image: "./assets/images/1.png",
 
     },
 
@@ -32,7 +32,7 @@ const TRAINING = {
       text:
         "Safe commuting awareness dirancang untuk seluruh karyawan agar selalu waspada terhadap berbagai risiko yang dapat terjadi selama perjalanan dari dan menuju tempat kerja.",
 
-      image: "./assets/images/2.PNG"
+      image: "./assets/images/2.png"
     },
 
 
@@ -48,7 +48,7 @@ const TRAINING = {
         "Keselamatan perjalanan dimulai sebelum kita meninggalkan rumah. Persiapan yang baik membantu mengurangi risiko kecelakaan dan memastikan perjalanan berlangsung dengan aman.",
 
       image:
-        "./assets/images/3.PNG",
+        "./assets/images/3.png",
     },
 
 
@@ -64,7 +64,7 @@ const TRAINING = {
         "Perilaku pengendara memiliki peran penting dalam mencegah kecelakaan. Selalu berkendara dengan hati-hati, fokus, dan mengikuti aturan lalu lintas.",
 
       image:
-        "./assets/images/Slide5.PNG",
+        "./assets/images/Slide5.png",
 
       points: [
         "Patuhi rambu dan aturan lalu lintas",
