@@ -223,16 +223,11 @@ function renderIdentity() {
     <section class="form-page">
 
       <div class="section-kicker">
-        01 /
+        01 / IDENTITAS DIRI
       </div>
 
 
-      <h2>
-        ,
-        <br>
-        .
-      </h2>
-
+      
       <form
         class="identity-form"
         onsubmit="startTraining(event)"
@@ -247,7 +242,7 @@ function renderIdentity() {
             name="name"
             required
             autocomplete="name"
-            placeholder="Contoh:""
+            placeholder=""
           >
 
         </label>
