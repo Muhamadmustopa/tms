@@ -14,15 +14,10 @@ const TRAINING = {
       title: "Safe Commuting Awareness",
 
       text:
-        "Safe commuting awareness dirancang untuk seluruh karyawan agar selalu waspada terhadap berbagai risiko yang dapat terjadi selama perjalanan dari dan menuju tempat kerja.",
+        "upaya meningkatkan kewaspadaan untuk diri kita.",
 
-      image: "./assets/images/Slide2.PNG",
+      image: "./assets/images/1.PNG",
 
-      points: [
-        "Selalu waspada terhadap kondisi di sekitar",
-        "Patuhi aturan keselamatan selama perjalanan",
-        "Laporkan kondisi yang tidak aman"
-      ]
     },
 
 
@@ -32,12 +27,12 @@ const TRAINING = {
     {
       type: "image",
 
-      title: "Grafik Angka Kecelakaan Lalu Lintas",
+      title: "Pengertian Safe Commuting Awareness",
 
       text:
-        "Berbagai kecelakaan dapat terjadi karena kombinasi tindakan tidak aman dan kondisi lingkungan yang tidak aman. Memahami sumber risiko membantu kita melakukan pencegahan sejak awal.",
+        "Safe commuting awareness dirancang untuk seluruh karyawan agar selalu waspada terhadap berbagai risiko yang dapat terjadi selama perjalanan dari dan menuju tempat kerja.",
 
-      image: "./assets/images/Slide3.PNG"
+      image: "./assets/images/2.PNG"
     },
 
 
