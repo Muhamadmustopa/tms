@@ -104,24 +104,20 @@ function renderHome() {
 
       <div class="hero-copy">
 
-        <div class="pill">
-          ● LnD
-        </div>
-
         <h1>
           Learning and Development Program
           <br>
           <em></em>
         </h1>
 
-        <p>pemahaman dasar dalam materi safe commuting awereness</p>
+        <p>pemahaman dasar dalam materi tentang safe commuting awereness</p>
 
         <button
           class="primary"
           type="button"
           onclick="goIdentity()"
         >
-          Mulai Training
+          Klik untuk mengerjakan
           <span>→</span>
         </button>
 
@@ -227,22 +223,15 @@ function renderIdentity() {
     <section class="form-page">
 
       <div class="section-kicker">
-        01 / IDENTITAS PESERTA
+        01 /
       </div>
 
 
       <h2>
-        Identitas Peserta,
+        ,
         <br>
         .
       </h2>
-
-
-      <p class="muted">
-        Data ini digunakan untuk mencatat
-        hasil training.
-      </p>
-
 
       <form
         class="identity-form"
@@ -258,7 +247,7 @@ function renderIdentity() {
             name="name"
             required
             autocomplete="name"
-            placeholder="Contoh: Ahmad Yani"
+            placeholder="Contoh:""
           >
 
         </label>
@@ -277,7 +266,7 @@ function renderIdentity() {
             name="email"
             type="email"
             autocomplete="email"
-            placeholder="nama@perusahaan.com"
+            placeholder=""
           >
 
         </label>
@@ -287,7 +276,7 @@ function renderIdentity() {
           class="primary full"
           type="submit"
         >
-          Mulai Training
+          Mulai
           <span>→</span>
         </button>
 
