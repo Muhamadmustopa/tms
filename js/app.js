@@ -29,7 +29,7 @@ function layout(content, eyebrow = "LND") {
 
         <div class="brand">
           <span class="brand-mark">
-          <img src="./assets/images/1.png" alt="MAP">
+          <img src="./assets/images/maaf.png" alt="MAP">
           <span>${escapeHtml(eyebrow)}</span>
         </div>
 
