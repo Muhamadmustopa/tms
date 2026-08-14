@@ -33,7 +33,7 @@ function layout(content, eyebrow = "LND") {
           <span>${escapeHtml(eyebrow)}</span>
         </div>
 
-        <span class="mini-label">Learning & Development </span>
+        <span class="mini-label">Learn For Free.Forever </span>
 
       </header>
 
@@ -114,9 +114,7 @@ function renderHome() {
           class="primary"
           type="button"
           onclick="goIdentity()"
-        >
-          Klik untuk mengerjakan
-          <span>→</span>
+        >Get Started<span>→</span>
         </button>
 
       </div>
