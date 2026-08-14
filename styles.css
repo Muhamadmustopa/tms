@@ -23,12 +23,31 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  background: #f8f9fb;
-  color: var(--ink);
-  font-family: Inter, Arial, sans-serif;
-  line-height: 1.6;
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:Inter,Arial,sans-serif;
+  line-height:1.6;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(59,130,246,.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(37,99,235,.14),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #eef5ff 0%,
+      #f7faff 45%,
+      #eaf2ff 100%
+    );
+
+  min-height:100vh;
 }
 
 button,
@@ -82,17 +101,22 @@ button:disabled {
   font-weight: 800;
 }
 
-.brand-mark {
-  width: 36px;
-  height: 36px;
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
 
-  border-radius: 10px;
-
-  display: grid;
-  place-items: center;
-
-  background: var(--primary);
-  color: #fff;
+.brand-mark img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  display:block;
 }
 
 .mini-label {
