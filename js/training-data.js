@@ -48,15 +48,7 @@ const TRAINING = {
         "Keselamatan perjalanan dimulai sebelum kita meninggalkan rumah. Persiapan yang baik membantu mengurangi risiko kecelakaan dan memastikan perjalanan berlangsung dengan aman.",
 
       image:
-        "./assets/images/Slide4.PNG",
-
-      points: [
-        "Pastikan kendaraan dalam kondisi layak",
-        "Gunakan helm atau sabuk pengaman sesuai ketentuan",
-        "Pastikan kondisi tubuh cukup sehat dan fit untuk berkendara",
-        "Periksa rute dan kondisi perjalanan sebelum berangkat",
-        "Hindari penggunaan ponsel saat berkendara"
-      ]
+        "./assets/images/3.PNG",
     },
 
 
