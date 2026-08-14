@@ -20,7 +20,7 @@ const app = document.getElementById("app");
    LAYOUT
 ========================================================= */
 
-function layout(content, eyebrow = "TMS") {
+function layout(content, eyebrow = "LND") {
 
   return `
     <div class="shell">
@@ -29,7 +29,7 @@ function layout(content, eyebrow = "TMS") {
 
         <div class="brand">
           <span class="brand-mark">
-           <img src="./assets/images/logo-map.png" alt="MAP"></span>
+           <img src="./assets/images/maaf.png" alt="MAP"></span>
           <span>${escapeHtml(eyebrow)}</span>
         </div>
 
