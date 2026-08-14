@@ -1096,138 +1096,45 @@ function nextSlide() {
 ========================================================= */
 
 function renderResult() {
-
-  const result =
-    calculateResult();
-
-
-  const passed =
-    result.passed;
-
+  const r = calculateResult();
 
   app.innerHTML = layout(`
-
     <section class="result-page">
 
+      <div class="result-icon">✓</div>
 
-      <div class="result-icon">
+      <div class="pill">TRAINING SELESAI</div>
 
-        ${passed ? "✓" : "!"}
+      <h2>Training sudah selesai.</h2>
 
-      </div>
-
-
-      <div class="pill">
-
-        ${
-          passed
-            ? "TRAINING SELESAI"
-            : "BELUM LULUS"
-        }
-
-      </div>
-
-
-      <h2>
-
-        ${
-          passed
-            ? "Selamat, training selesai."
-            : "Training sudah selesai."
-        }
-
-      </h2>
-
-
-      <div class="score">
-
-        ${result.score}
-
-        <small>
-          /100
-        </small>
-
-      </div>
-
-
-      <div
-        class="
-          result-status
-          ${passed ? "pass" : "fail"}
-        "
-      >
-
-        ${
-          passed
-            ? "LULUS"
-            : "TIDAK LULUS"
-        }
-
-      </div>
-
-
-      <p class="muted">
-
-        ${escapeHtml(
-          state.participant.name
-        )}
-
-        kamu menjawab
-
-        <b>
-
-          ${result.correct}
-
-          dari
-
-          ${result.total}
-
-        </b>
-
-        soal dengan benar.
-
+      <p class="result-thanks">
+        Terima kasih, <b>${escapeHtml(state.participant.name)}</b>.
+        Anda telah menyelesaikan training dengan materi
+        <b>Safety Commuting Awareness</b>.
       </p>
 
-
-      <div class="result-actions">
-
-
-        <button
-          class="primary"
-          type="button"
-          onclick="saveResult()"
-          id="save-result-button"
-        >
-
-          Simpan Hasil
-
-        </button>
-
-
-        <button
-          class="secondary"
-          type="button"
-          onclick="finishTraining()"
-        >
-
-          Selesai
-
-        </button>
-
-
+      <div class="score">
+        ${r.score}<small>/100</small>
       </div>
 
+      <p class="result-summary">
+        Anda menjawab <b>${r.correct} dari ${r.total}</b> soal dengan benar.
+      </p>
 
-      <div
-        id="save-status"
-        class="save-status"
-      ></div>
+      <div class="result-actions">
+        <button class="primary" onclick="saveResult()" id="save-result-button">
+          Simpan Hasil
+        </button>
 
+        <button class="secondary" onclick="finishTraining()">
+          Selesai
+        </button>
+      </div>
+
+      <div id="save-status" class="save-status"></div>
 
     </section>
-
   `);
-
 }
 
 
