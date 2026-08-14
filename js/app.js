@@ -33,9 +33,7 @@ function layout(content, eyebrow = "LND") {
           <span>${escapeHtml(eyebrow)}</span>
         </div>
 
-        <span class="mini-label">
-          L&D MITRA ASA PRATAMA
-        </span>
+        <span class="mini-label">Learning & Development </span>
 
       </header>
 
@@ -299,48 +297,140 @@ function goIdentity() {
 
 }
 
+async function startTraining(e) {
 
-function startTraining(event) {
+  e.preventDefault();
 
-  event.preventDefault();
+  const name =
+    document.getElementById("name").value.trim();
 
-  const nameInput =
-    document.getElementById("name");
-
-  const emailInput =
-    document.getElementById("email");
-
-
-  state.participant = {
-
-    name:
-      nameInput
-        ? nameInput.value.trim()
-        : "",
-
-    email:
-      emailInput
-        ? emailInput.value.trim()
-        : ""
-
-  };
+  const email =
+    document.getElementById("email").value.trim();
 
 
-  state.currentSlide = 0;
+  if (!name) {
 
-  state.answers = {};
+    alert("Nama lengkap wajib diisi.");
 
-  state.isSaving = false;
+    return;
+  }
 
-  state.screen = "learning";
+
+  if (!email) {
+
+    alert("Email wajib diisi untuk mengikuti training.");
+
+    return;
+  }
 
 
-  saveState();
+  if (!CONFIG.googleScriptUrl) {
 
-  render();
+    alert(
+      "Google Sheets belum terhubung."
+    );
 
+    return;
+  }
+
+
+  const form =
+    document.querySelector(".identity-form");
+
+  const button =
+    form?.querySelector("button[type='submit']");
+
+
+  if (button) {
+
+    button.disabled = true;
+
+    button.textContent =
+      "Memeriksa email...";
+  }
+
+
+  try {
+
+    /* ==========================================
+       CEK EMAIL
+    ========================================== */
+
+    const alreadyExists =
+      await checkEmailExists(email);
+
+
+    if (alreadyExists) {
+
+      alert(
+        "Email ini sudah pernah mengikuti training.\n\n" +
+        "Training tidak dapat diulang menggunakan email yang sama."
+      );
+
+
+      if (button) {
+
+        button.disabled = false;
+
+        button.textContent =
+          "Mulai Training →";
+      }
+
+
+      return;
+    }
+
+
+    /* ==========================================
+       EMAIL BELUM ADA
+       BOLEH TRAINING
+    ========================================== */
+
+    state.participant = {
+
+      name: name,
+
+      email: email
+    };
+
+
+    state.currentSlide = 0;
+
+    state.answers = {};
+
+    state.isSaving = false;
+
+    state.screen = "learning";
+
+
+    saveState();
+
+    render();
+
+
+  } catch (error) {
+
+    console.error(
+      "Error pengecekan email:",
+      error
+    );
+
+
+    alert(
+      "Tidak dapat terhubung ke Google Sheets.\n\n" +
+      "Silakan coba beberapa saat lagi."
+    );
+
+    if (button) {
+
+      button.disabled = false;
+
+      button.textContent =
+        "Mulai Training →";
+    }
+
+  }
 }
-
 
 /* =========================================================
    LEARNING ENGINE
