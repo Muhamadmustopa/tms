@@ -28,12 +28,13 @@ function layout(content, eyebrow = "TMS") {
       <header class="topbar">
 
         <div class="brand">
-          <span class="brand-mark">T</span>
+          <span class="brand-mark">
+           <img src="./assets/images/logo-map.png" alt="MAP"></span>
           <span>${escapeHtml(eyebrow)}</span>
         </div>
 
         <span class="mini-label">
-          TRAINING & LEARNING
+          L&D MITRA ASA PRATAMA
         </span>
 
       </header>
