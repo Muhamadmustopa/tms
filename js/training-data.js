@@ -65,6 +65,22 @@ const TRAINING = {
         "https://youtu.be/ONBAqjc-oYs?si=hi7eD5cvwGEP0o6c"
     },
 
+       // =====================================================
+    // SLIDE 5 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Mengapa Safe Commuting Penting?",
+
+      text:
+        "Perjalanan menuju dan dari tempat kerja merupakan bagian dari aktivitas sehari-hari. Keselamatan perjalanan perlu menjadi perhatian agar kita dapat tiba di tujuan dengan selamat dan kembali ke rumah dengan aman.",
+
+      image: "./assets/images/6.png",
+
+    },
+
+
 
     // =====================================================
     // SLIDE 5 - POST TEST
@@ -112,19 +128,17 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Faktor Penyebab Kecelakaan",
+      title: "Faktor Manusia",
 
       text:
-        "Kecelakaan dapat terjadi karena berbagai faktor. Memahami faktor penyebab kecelakaan membantu kita meningkatkan kewaspadaan dan mengambil tindakan pencegahan.",
-
-      image: "./assets/images/Slide5.png",
+        "hal-hal yang perlu di perhatikan dalam kondisi pengendara.",
+     
+      image: "./assets/images/7.png",
 
       points: [
-        "Faktor manusia",
-        "Faktor kendaraan",
-        "Faktor lingkungan",
-        "Faktor kondisi jalan",
-        "Faktor cuaca"
+        "Kondisi tubuh sehat dan prima",
+        "tidak mengantuk atau kelelahan",
+        "Memiliki SIM sesuai jenis kendaraan"
       ]
     },
 
@@ -138,15 +152,10 @@ const TRAINING = {
       title: "Faktor Manusia",
 
       text:
-        "Manusia merupakan salah satu faktor penting dalam keselamatan berkendara. Kondisi fisik, kondisi mental, serta perilaku pengendara dapat memengaruhi kemampuan dalam mengambil keputusan.",
+        "perlengkapan keselamatan dalam berkendara.",
+     
+      image: "./assets/images/8.png",
 
-      points: [
-        "Mengantuk atau kelelahan",
-        "Kurang konsentrasi",
-        "Menggunakan ponsel saat berkendara",
-        "Berkendara dengan emosi",
-        "Tidak mematuhi aturan lalu lintas"
-      ]
     },
 
 
@@ -156,60 +165,50 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Faktor Kendaraan",
+      title: "Mematuhi peraturan lalu lintas",
 
       text:
-        "Kondisi kendaraan yang tidak baik dapat meningkatkan risiko kecelakaan. Oleh karena itu, kendaraan perlu diperiksa secara berkala sebelum digunakan.",
+        "penerapan dalam mentaati lalu lintas",
+     
+      image: "./assets/images/9.png",
 
-      points: [
-        "Periksa kondisi rem",
-        "Periksa kondisi ban",
-        "Pastikan lampu berfungsi",
-        "Periksa kaca spion",
-        "Pastikan bahan bakar dan kondisi kendaraan mencukupi"
-      ]
     },
+
 
 
     // =====================================================
     // SLIDE 10 - MATERI
     // =====================================================
-    {
+     {
       type: "material",
 
-      title: "Faktor Lingkungan dan Jalan",
+      title: "Mengenali potensi bahaya",
 
       text:
-        "Kondisi lingkungan dan jalan juga dapat memengaruhi keselamatan perjalanan. Pengendara harus menyesuaikan kecepatan dan cara berkendara dengan kondisi yang dihadapi.",
+        "contoh potensi bahaya",
+     
+      image: "./assets/images/11.png",
 
-      points: [
-        "Jalan licin",
-        "Jalan berlubang",
-        "Kemacetan",
-        "Penerangan yang kurang",
-        "Kondisi lalu lintas yang padat"
-      ]
     },
 
 
     // =====================================================
-    // SLIDE 11 - MATERI
+    // SLIDE 11 - POST TEST---------
     // =====================================================
-    {
-      type: "material",
+     {
+      type: "question",
 
-      title: "Dampak Kurang Kewaspadaan",
+      q:
+        "",
 
-      text:
-        "Kurangnya kewaspadaan dapat menyebabkan berbagai dampak, mulai dari kesalahan dalam mengambil keputusan hingga kecelakaan yang dapat merugikan diri sendiri maupun orang lain.",
+      options: [
+        "Jalan yang berlubang",
+        "Mengantuk dan kurang konsentrasi",
+        "Lampu kendaraan rusak",
+        "Hujan deras"
+      ],
 
-      points: [
-        "Kecelakaan lalu lintas",
-        "Cedera",
-        "Kerusakan kendaraan",
-        "Kerugian material",
-        "Membahayakan pengguna jalan lain"
-      ]
+      answer: 1
     },
 
 
