@@ -114,8 +114,8 @@ button:disabled {
 
 .brand-logo {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 120px;
+  height: 75px;
   object-fit: contain;
   background: transparent;
   border: none;
@@ -123,8 +123,8 @@ button:disabled {
 }
 
 .brand-mark img{
-  width:32px;
-  height:32px;
+  width:55px;
+  height:55px;
   object-fit:contain;
   display:block;
 }
