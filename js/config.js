@@ -3,7 +3,7 @@ const CONFIG = {
 
   passingGrade: 75,
 
-  trainingName: "Learning and Development",
+  trainingName: "Safe commutiing awereness",
 
   // Peserta yang emailnya sudah ada di Google Sheet
   // tidak boleh mengikuti training kembali.
