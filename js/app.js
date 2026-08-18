@@ -204,7 +204,6 @@ function renderIdentity() {
           Email
 
           <span class="optional">
-            (opsional)
           </span>
 
           <input
