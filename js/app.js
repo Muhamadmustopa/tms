@@ -306,6 +306,10 @@ async function startTraining(e) {
     document.getElementById("email").value.trim();
 
 
+  /* ==========================================
+     VALIDASI NAMA
+  ========================================== */
+
   if (!name) {
 
     alert("Nama lengkap wajib diisi.");
@@ -314,13 +318,23 @@ async function startTraining(e) {
   }
 
 
+  /* ==========================================
+     VALIDASI EMAIL
+  ========================================== */
+
   if (!email) {
 
-    alert("Email wajib diisi untuk mengikuti training.");
+    alert(
+      "Email wajib diisi untuk mengikuti training."
+    );
 
     return;
   }
 
+
+  /* ==========================================
+     CEK CONFIG
+  ========================================== */
 
   if (!CONFIG.googleScriptUrl) {
 
@@ -336,8 +350,14 @@ async function startTraining(e) {
     document.querySelector(".identity-form");
 
   const button =
-    form?.querySelector("button[type='submit']");
+    form?.querySelector(
+      "button[type='submit']"
+    );
 
+
+  /* ==========================================
+     DISABLE BUTTON
+  ========================================== */
 
   if (button) {
 
@@ -351,12 +371,16 @@ async function startTraining(e) {
   try {
 
     /* ==========================================
-       CEK EMAIL
+       CEK EMAIL KE GOOGLE SHEETS
     ========================================== */
 
     const alreadyExists =
       await checkEmailExists(email);
 
+
+    /* ==========================================
+       EMAIL SUDAH TERDAFTAR
+    ========================================== */
 
     if (alreadyExists) {
 
@@ -371,7 +395,7 @@ async function startTraining(e) {
         button.disabled = false;
 
         button.textContent =
-          "Mulai Training →";
+          "Mulai →";
       }
 
 
@@ -380,8 +404,8 @@ async function startTraining(e) {
 
 
     /* ==========================================
-       EMAIL BELUM ADA
-       BOLEH TRAINING
+       EMAIL BELUM TERDAFTAR
+       BOLEH MENGIKUTI TRAINING
     ========================================== */
 
     state.participant = {
@@ -389,6 +413,7 @@ async function startTraining(e) {
       name: name,
 
       email: email
+
     };
 
 
@@ -425,61 +450,11 @@ async function startTraining(e) {
       button.disabled = false;
 
       button.textContent =
-        "Mulai Training →";
+        "Mulai →";
     }
 
   }
-}
 
-    /* ==========================================
-       EMAIL BELUM ADA
-       BOLEH TRAINING
-    ========================================== */
-
-    state.participant = {
-
-      name: name,
-
-      email: email
-    };
-
-
-    state.currentSlide = 0;
-
-    state.answers = {};
-
-    state.isSaving = false;
-
-    state.screen = "learning";
-
-
-    saveState();
-
-    render();
-
-
-  } catch (error) {
-
-    console.error(
-      "Error pengecekan email:",
-      error
-    );
-
-
-    alert(
-      "Tidak dapat terhubung ke Google Sheets.\n\n" +
-      "Silakan coba beberapa saat lagi."
-    );
-
-    if (button) {
-
-      button.disabled = false;
-
-      button.textContent =
-        "Mulai Training →";
-    }
-
-  }
 }
 
 /* =========================================================
