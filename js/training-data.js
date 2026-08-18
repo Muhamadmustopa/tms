@@ -199,37 +199,36 @@ const TRAINING = {
       type: "question",
 
       q:
-        "",
+        "3. Manakah yang bukan merupakan kondisi pengendara yang baik sebelum berkendara?",
 
       options: [
-        "Jalan yang berlubang",
-        "Mengantuk dan kurang konsentrasi",
-        "Lampu kendaraan rusak",
-        "Hujan deras"
+        "A. Tubuh sehat dan prima",
+        "B. Konsentrasi Penuh",
+        "C. Tidak Mengantuk",
+        "D. Berkendara dalam kondisi lelah"
       ],
 
-      answer: 1
+      answer: 3
     },
 
 
     // =====================================================
-    // SLIDE 12 - MATERI
+    // SLIDE 12 - POST TEST
     // =====================================================
-    {
-      type: "material",
+     {
+      type: "question",
 
-      title: "Perilaku Berkendara yang Aman",
+      q:
+        "4.	Bagaimana cara mengatur kecepatan kendaraan yang tepat?",
 
-      text:
-        "Perilaku pengendara memiliki peran penting dalam mencegah kecelakaan. Selalu berkendara dengan hati-hati, fokus, dan mengikuti aturan lalu lintas.",
+      options: [
+        "A.	Selalu menggunakan kecepatan maksimal",
+        "B.	Menyesuaikan kecepatan dengan kondisi jalan,cuaca,dan lalu lintas",
+        "C.	Mengikuti kecepatan kendaraan di depan",
+        "D.	Mempercepat kendaraan saat turun hujan"
+      ],
 
-      points: [
-        "Patuhi rambu dan aturan lalu lintas",
-        "Jaga jarak aman dengan kendaraan lain",
-        "Jangan menggunakan ponsel saat berkendara",
-        "Hindari berkendara dalam kondisi mengantuk",
-        "Jangan memaksakan diri ketika kondisi tidak memungkinkan"
-      ]
+      answer: 1
     },
 
 
@@ -237,99 +236,53 @@ const TRAINING = {
     // SLIDE 13 - POST TEST
     // =====================================================
     {
+       {
       type: "question",
 
       q:
-        "Manakah yang termasuk faktor manusia yang dapat menyebabkan kecelakaan?",
+        "5.	Apa yang sebaiknya dilakukan saat menunggu kendaraan umum di halte atau stasiun?",
 
       options: [
-        "Jalan yang berlubang",
-        "Mengantuk dan kurang konsentrasi",
-        "Lampu kendaraan rusak",
-        "Hujan deras"
+        "A.	Berdiri sedekat mungkin dengan jalur kendaraan",
+        "B.	menggunakan headset dengan volume tinggi",
+        "C.	Berjalan di jalur kendaraan",
+        "D.	Berdiri di belakang garis aman"
       ],
 
-      answer: 1
-    },
-
-
-    // =====================================================
-    // SLIDE 14 - POST TEST
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "Apa tindakan yang tepat ketika pengendara merasa mengantuk?",
-
-      options: [
-        "Tetap berkendara dengan kecepatan tinggi",
-        "Menggunakan ponsel agar tetap terjaga",
-        "Beristirahat sebelum melanjutkan perjalanan",
-        "Membuka kaca helm"
-      ],
-
-      answer: 2
-    },
-
-
-    // =====================================================
-    // SLIDE 15 - POST TEST
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "Apa yang harus dilakukan ketika kondisi jalan sedang licin?",
-
-      options: [
-        "Meningkatkan kecepatan",
-        "Mengurangi kecepatan dan meningkatkan kewaspadaan",
-        "Mengikuti kendaraan di depan dengan sangat dekat",
-        "Menggunakan ponsel untuk melihat kondisi jalan"
-      ],
-
-      answer: 1
+      answer: 3
     },
 
 
     // =====================================================
     // SLIDE 16 - MATERI
     // =====================================================
-    {
+     {
       type: "material",
 
-      title: "Persiapan Sebelum Berkendara",
+      title: "Pengaturan kecepatan kendaraan",
 
       text:
-        "Keselamatan perjalanan dimulai sebelum kita meninggalkan rumah. Persiapan yang baik membantu mengurangi risiko kecelakaan dan memastikan perjalanan berlangsung dengan aman.",
+        "penerapan pengaturan kecepatan sesuai kondisi jalan, cuaca, dan lalu lintas",
+     
+      image: "./assets/images/12.png",
 
-      points: [
-        "Pastikan tubuh dalam kondisi fit",
-        "Pastikan kendaraan dalam kondisi baik",
-        "Gunakan perlengkapan keselamatan",
-        "Periksa kondisi perjalanan dan cuaca"
-      ]
     },
+
 
 
     // =====================================================
     // SLIDE 17 - MATERI
     // =====================================================
-    {
+     {
       type: "material",
 
-      title: "Penggunaan Alat Pelindung Diri",
+      title: "Etika dalam kendaraan",
 
       text:
-        "Alat Pelindung Diri atau APD digunakan sebagai perlindungan tambahan untuk mengurangi risiko cedera selama perjalanan.",
+        "penerapan pengaturan kecepatan sesuai kondisi jalan, cuaca, dan lalu lintas",
+     
+      image: "./assets/images/13.png",
 
-      points: [
-        "Gunakan helm yang sesuai standar",
-        "Pastikan helm terpasang dengan benar",
-        "Gunakan perlengkapan keselamatan sesuai kebutuhan",
-        "Pastikan APD dalam kondisi layak"
-      ]
     },
 
 
