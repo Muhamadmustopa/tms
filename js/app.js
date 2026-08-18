@@ -20,7 +20,7 @@ const app = document.getElementById("app");
    LAYOUT
 ========================================================= */
 
-function layout(content, eyebrow = "LND") {
+function layout(content, eyebrow = "") {
 
   return `
     <div class="shell">
@@ -28,10 +28,12 @@ function layout(content, eyebrow = "LND") {
       <header class="topbar">
 
         <div class="brand">
-          <span class="brand-mark">
-          <img src="./assets/images/maaf.png" alt="MAP">
-          <span>${escapeHtml(eyebrow)}</span>
-        </div>
+        <span class="brand-mark">
+         <img src="./assets/images/maaf.png"
+         alt="MAP"
+         class="brand-logo">
+        </span>
+   </div>
 
         <span class="mini-label">Learn For Free.Forever </span>
 
