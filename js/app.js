@@ -1170,11 +1170,11 @@ function renderResult() {
   app.innerHTML = layout(`
     <section class="result-page">
 
-      <h2>Safe Commuting Awerenes.</h2>
+      <h2>Safe Commuting Awarennes</h2>
 
       <p class="result-thanks">
         Terima kasih, <b>${escapeHtml(state.participant.name)}</b>.
-        Anda telah menyelesaikan training dengan materi
+        Anda telah menyelesaikan LnD dengan materi
         <b>Safety Commuting Awareness</b>.
       </p>
 
