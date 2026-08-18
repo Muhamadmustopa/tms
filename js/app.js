@@ -159,53 +159,6 @@ function renderHome() {
           </span>
 
         </div>
-
-
-        <div class="slide-count">
-          ${slides.length} slide pembelajaran
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="feature-row">
-
-      <div>
-        <span>01</span>
-        <b>Pelajari materi</b>
-
-        <p>
-          Materi disajikan secara bertahap
-          melalui slide yang interaktif.
-        </p>
-      </div>
-
-
-      <div>
-        <span>02</span>
-        <b>Pemaparan Materi</b>
-
-        <p>
-          Materi dapat dilengkapi gambar,
-          dan video.
-        </p>
-      </div>
-
-
-      <div>
-        <span>03</span>
-        <b>Pengisian Post Test</b>
-
-        <p>
-          Soal dapat ditempatkan di antara
-          materi sesuai alur materi.
-        </p>
-      </div>
-
-    </section>
-
   `);
 }
 
