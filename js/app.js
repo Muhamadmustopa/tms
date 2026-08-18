@@ -264,9 +264,7 @@ function renderIdentity() {
         <button
           class="primary full"
           type="submit"
-        >
-          Mulai
-          <span>→</span>
+        >Start<span>→</span>
         </button>
 
       </form>
