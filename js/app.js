@@ -419,6 +419,58 @@ async function startTraining(e) {
       "Silakan coba beberapa saat lagi."
     );
 
+
+    if (button) {
+
+      button.disabled = false;
+
+      button.textContent =
+        "Mulai Training →";
+    }
+
+  }
+}
+
+    /* ==========================================
+       EMAIL BELUM ADA
+       BOLEH TRAINING
+    ========================================== */
+
+    state.participant = {
+
+      name: name,
+
+      email: email
+    };
+
+
+    state.currentSlide = 0;
+
+    state.answers = {};
+
+    state.isSaving = false;
+
+    state.screen = "learning";
+
+
+    saveState();
+
+    render();
+
+
+  } catch (error) {
+
+    console.error(
+      "Error pengecekan email:",
+      error
+    );
+
+
+    alert(
+      "Tidak dapat terhubung ke Google Sheets.\n\n" +
+      "Silakan coba beberapa saat lagi."
+    );
+
     if (button) {
 
       button.disabled = false;
