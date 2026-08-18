@@ -409,6 +409,54 @@ footer {
   margin-top: 10px;
 }
 
+/* =========================================
+   DEPARTMENT SELECT
+========================================= */
+
+.identity-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.identity-form input,
+.identity-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: 
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Saat select diklik */
+.identity-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(24, 32, 43, 0.08);
+}
+
+/* Tampilan placeholder */
+.identity-form select:invalid {
+  color: var(--muted);
+}
+
+/* Tampilan pilihan setelah dipilih */
+.identity-form select:valid {
+  color: var(--ink);
+}
+
+/* Opsi dropdown */
+.identity-form select option {
+  color: var(--ink);
+  background: #fff;
+}
 /* =========================================================
    PROGRESS
    ========================================================= */
