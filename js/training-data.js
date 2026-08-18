@@ -1,12 +1,11 @@
 const TRAINING = {
-  title: "Learning and Development",
+  title: "Find Your Topics to Learn",
   subtitle: "Materi Safe Commuting Awareness",
-  
 
   slides: [
 
     // =====================================================
-    // SLIDE 1
+    // SLIDE 1 - MATERI
     // =====================================================
     {
       type: "material",
@@ -14,57 +13,216 @@ const TRAINING = {
       title: "Safe Commuting Awareness",
 
       text:
-        "upaya meningkatkan kewaspadaan untuk diri kita.",
+        "Safe Commuting Awareness merupakan upaya untuk meningkatkan kewaspadaan dan kesadaran kita terhadap keselamatan selama perjalanan dari rumah menuju tempat kerja maupun dari tempat kerja menuju rumah.",
 
-      image: "./assets/images/1.png",
-
+      image: "./assets/images/1.png"
     },
 
 
     // =====================================================
-    // SLIDE 2
+    // SLIDE 2 - MATERI
     // =====================================================
     {
-      type: "image",
+      type: "material",
 
       title: "Pengertian Safe Commuting Awareness",
 
       text:
-        "Safe commuting awareness dirancang untuk seluruh karyawan agar selalu waspada terhadap berbagai risiko yang dapat terjadi selama perjalanan dari dan menuju tempat kerja.",
+        "Safe Commuting Awareness dirancang untuk membantu seluruh karyawan memahami berbagai risiko yang dapat terjadi selama perjalanan serta membangun kebiasaan berkendara yang aman dan bertanggung jawab.",
 
       image: "./assets/images/2.png"
     },
 
 
     // =====================================================
-    // SLIDE 3 - MATERI BARU
+    // SLIDE 3 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Fakto Penyebab dari kecelakaan",
+      title: "Mengapa Safe Commuting Penting?",
 
       text:
-        "Keselamatan perjalanan dimulai sebelum kita meninggalkan rumah. Persiapan yang baik membantu mengurangi risiko kecelakaan dan memastikan perjalanan berlangsung dengan aman.",
+        "Perjalanan menuju dan dari tempat kerja merupakan bagian dari aktivitas sehari-hari. Keselamatan perjalanan perlu menjadi perhatian agar kita dapat tiba di tujuan dengan selamat dan kembali ke rumah dengan aman.",
 
-      image:
-        "./assets/images/3.png",
+      image: "./assets/images/3.png",
+
     },
 
 
     // =====================================================
-    // SLIDE 4 - MATERI BARU
+    // SLIDE 4 - VIDEO
+    // =====================================================
+    {
+      type: "video",
+
+      title: "Video Pengenalan Safe Commuting Awareness",
+
+      text:
+        "Silakan simak video berikut untuk memahami pentingnya menjaga kewaspadaan dan keselamatan selama perjalanan.",
+
+      video:
+        "https://youtu.be/ONBAqjc-oYs?si=hi7eD5cvwGEP0o6c"
+    },
+
+
+    // =====================================================
+    // SLIDE 5 - POST TEST
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "1.	Apa yang dimaksud dengan commuting?",
+
+      options: [
+        "A.	Perjalanan untuk rekreasi ",
+        "B.	Perjalanan rutin dari rumah ke tempat kerja dan sebaliknya",
+        "C.	Perjalanan dinas ",
+        "D.	Perjalanan menggunakan kendaraan umum"
+      ],
+
+      answer: 1
+    },
+
+
+    // =====================================================
+    // SLIDE 6 - POST TEST
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "2.	Apa yang dimaksud dengan Safety Riding?",
+
+      options: [
+        "A.	Berkendara dengan kecepatan tinggi ",
+        "B.	Perilaku berkendara yang aman, tertib, dan bertanggung jawab ",
+        "C.	Berkendara hanya menggunakan kendaraan baru ",
+        "D.	Berkendara tanpa memperhatikan pengguna jalan lain"
+      ],
+
+      answer: 1
+    },
+
+
+    // =====================================================
+    // SLIDE 7 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Dampak dari kurang kewaspadaan",
+      title: "Faktor Penyebab Kecelakaan",
+
+      text:
+        "Kecelakaan dapat terjadi karena berbagai faktor. Memahami faktor penyebab kecelakaan membantu kita meningkatkan kewaspadaan dan mengambil tindakan pencegahan.",
+
+      image: "./assets/images/Slide5.png",
+
+      points: [
+        "Faktor manusia",
+        "Faktor kendaraan",
+        "Faktor lingkungan",
+        "Faktor kondisi jalan",
+        "Faktor cuaca"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 8 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Faktor Manusia",
+
+      text:
+        "Manusia merupakan salah satu faktor penting dalam keselamatan berkendara. Kondisi fisik, kondisi mental, serta perilaku pengendara dapat memengaruhi kemampuan dalam mengambil keputusan.",
+
+      points: [
+        "Mengantuk atau kelelahan",
+        "Kurang konsentrasi",
+        "Menggunakan ponsel saat berkendara",
+        "Berkendara dengan emosi",
+        "Tidak mematuhi aturan lalu lintas"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 9 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Faktor Kendaraan",
+
+      text:
+        "Kondisi kendaraan yang tidak baik dapat meningkatkan risiko kecelakaan. Oleh karena itu, kendaraan perlu diperiksa secara berkala sebelum digunakan.",
+
+      points: [
+        "Periksa kondisi rem",
+        "Periksa kondisi ban",
+        "Pastikan lampu berfungsi",
+        "Periksa kaca spion",
+        "Pastikan bahan bakar dan kondisi kendaraan mencukupi"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 10 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Faktor Lingkungan dan Jalan",
+
+      text:
+        "Kondisi lingkungan dan jalan juga dapat memengaruhi keselamatan perjalanan. Pengendara harus menyesuaikan kecepatan dan cara berkendara dengan kondisi yang dihadapi.",
+
+      points: [
+        "Jalan licin",
+        "Jalan berlubang",
+        "Kemacetan",
+        "Penerangan yang kurang",
+        "Kondisi lalu lintas yang padat"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 11 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Dampak Kurang Kewaspadaan",
+
+      text:
+        "Kurangnya kewaspadaan dapat menyebabkan berbagai dampak, mulai dari kesalahan dalam mengambil keputusan hingga kecelakaan yang dapat merugikan diri sendiri maupun orang lain.",
+
+      points: [
+        "Kecelakaan lalu lintas",
+        "Cedera",
+        "Kerusakan kendaraan",
+        "Kerugian material",
+        "Membahayakan pengguna jalan lain"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 12 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Perilaku Berkendara yang Aman",
 
       text:
         "Perilaku pengendara memiliki peran penting dalam mencegah kecelakaan. Selalu berkendara dengan hati-hati, fokus, dan mengikuti aturan lalu lintas.",
-
-      image:
-        "./assets/images/Slide5.png",
 
       points: [
         "Patuhi rambu dan aturan lalu lintas",
@@ -77,35 +235,19 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 5
-    // =====================================================
-    {
-      type: "video",
-
-      title: "Video Pengenalan Safe commuting awereness",
-
-      text:
-        "Silakan simak video berikut untuk memahami pentingnya menajaga kewaspadaan dalam berkendara .",
-
-      video:
-        "https://youtu.be/ONBAqjc-oYs?si=hi7eD5cvwGEP0o6c"
-    },
-
-
-    // =====================================================
-    // SLIDE 6
+    // SLIDE 13 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "Apa tujuan dari safe commuting awereness",
+        "Manakah yang termasuk faktor manusia yang dapat menyebabkan kecelakaan?",
 
       options: [
-        "Menjaga keselamatan untuk diri kita dan orang lain",
-        "Menciptakan tempat kerja yang aman dan sehat",
-        "Mengurangi jumlah karyawan",
-        "Menghilangkan seluruh pekerjaan"
+        "Jalan yang berlubang",
+        "Mengantuk dan kurang konsentrasi",
+        "Lampu kendaraan rusak",
+        "Hujan deras"
       ],
 
       answer: 1
@@ -113,19 +255,19 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 7
+    // SLIDE 14 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "Menurut pusat informasi data kriminal nasional berapa jumlah angka kecelakaan pada sepeda motor? ",
+        "Apa tindakan yang tepat ketika pengendara merasa mengantuk?",
 
       options: [
-        "1.232.643",
-        "1.278.643",
-        "1.332.743",
-        "92.876"
+        "Tetap berkendara dengan kecepatan tinggi",
+        "Menggunakan ponsel agar tetap terjaga",
+        "Beristirahat sebelum melanjutkan perjalanan",
+        "Membuka kaca helm"
       ],
 
       answer: 2
@@ -133,7 +275,47 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 8
+    // SLIDE 15 - POST TEST
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "Apa yang harus dilakukan ketika kondisi jalan sedang licin?",
+
+      options: [
+        "Meningkatkan kecepatan",
+        "Mengurangi kecepatan dan meningkatkan kewaspadaan",
+        "Mengikuti kendaraan di depan dengan sangat dekat",
+        "Menggunakan ponsel untuk melihat kondisi jalan"
+      ],
+
+      answer: 1
+    },
+
+
+    // =====================================================
+    // SLIDE 16 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Persiapan Sebelum Berkendara",
+
+      text:
+        "Keselamatan perjalanan dimulai sebelum kita meninggalkan rumah. Persiapan yang baik membantu mengurangi risiko kecelakaan dan memastikan perjalanan berlangsung dengan aman.",
+
+      points: [
+        "Pastikan tubuh dalam kondisi fit",
+        "Pastikan kendaraan dalam kondisi baik",
+        "Gunakan perlengkapan keselamatan",
+        "Periksa kondisi perjalanan dan cuaca"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 17 - MATERI
     // =====================================================
     {
       type: "material",
@@ -141,77 +323,51 @@ const TRAINING = {
       title: "Penggunaan Alat Pelindung Diri",
 
       text:
-        "Alat Pelindung Diri atau APD digunakan sebagai perlindungan tambahan bagi pekerja dari risiko yang masih ada setelah pengendalian bahaya dilakukan.",
-
-      image:
-        "https://images.unsplash.com/photo-1581093458791-9d42e3c5f0b1?auto=format&fit=crop&w=1200&q=80",
+        "Alat Pelindung Diri atau APD digunakan sebagai perlindungan tambahan untuk mengurangi risiko cedera selama perjalanan.",
 
       points: [
-        "Pilih APD sesuai risiko pekerjaan",
-        "Pastikan APD dalam kondisi layak",
-        "Gunakan APD dengan benar",
-        "Rawat dan simpan APD sesuai prosedur"
+        "Gunakan helm yang sesuai standar",
+        "Pastikan helm terpasang dengan benar",
+        "Gunakan perlengkapan keselamatan sesuai kebutuhan",
+        "Pastikan APD dalam kondisi layak"
       ]
     },
 
 
     // =====================================================
-    // SLIDE 9
+    // SLIDE 18 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Kenali Potensi Bahaya",
+      title: "Pentingnya Helm Saat Berkendara",
 
       text:
-        "Potensi bahaya adalah kondisi atau tindakan yang dapat menyebabkan cedera, kerusakan, atau gangguan kesehatan. Bahaya dapat berasal dari lingkungan, peralatan, bahan, maupun perilaku manusia.",
-
-      image:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+        "Helm merupakan salah satu perlengkapan keselamatan yang sangat penting bagi pengendara sepeda motor. Helm membantu melindungi kepala dari risiko cedera ketika terjadi kecelakaan.",
 
       points: [
-        "Amati kondisi area kerja",
-        "Identifikasi sumber bahaya",
-        "Nilai tingkat risikonya",
-        "Lakukan pengendalian yang sesuai"
+        "Gunakan helm yang sesuai standar",
+        "Pastikan ukuran helm sesuai",
+        "Kencangkan tali helm dengan benar",
+        "Jangan menggunakan helm yang rusak"
       ]
     },
 
 
     // =====================================================
-    // SLIDE 10
+    // SLIDE 19 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "APD digunakan terutama untuk...",
+        "Apa yang sebaiknya dilakukan sebelum memulai perjalanan?",
 
       options: [
-        "Menambah gaya berpakaian",
-        "Memberikan perlindungan tambahan sesuai risiko",
-        "Menggantikan semua prosedur kerja",
-        "Mengurangi waktu istirahat"
-      ],
-
-      answer: 1
-    },
-
-
-    // =====================================================
-    // SLIDE 11
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "Sebelum menggunakan APD, kita sebaiknya...",
-
-      options: [
-        "Memastikan kondisi APD layak digunakan",
-        "Langsung menggunakannya tanpa pemeriksaan",
-        "Meminjamkan kepada orang lain",
-        "Melepas bagian pengaman APD"
+        "Memastikan kondisi tubuh dan kendaraan siap",
+        "Langsung berkendara agar tidak terlambat",
+        "Menggunakan ponsel sambil berkendara",
+        "Mengabaikan kondisi kendaraan"
       ],
 
       answer: 0
@@ -219,19 +375,39 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 12
+    // SLIDE 20 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "Jika menemukan kondisi tidak aman, tindakan yang tepat adalah...",
+        "Mengapa penggunaan helm penting bagi pengendara sepeda motor?",
 
       options: [
-        "Membiarkannya",
-        "Menunggu sampai terjadi kecelakaan",
-        "Melaporkan dan melakukan pengendalian sesuai prosedur",
-        "Mengabaikannya"
+        "Agar terlihat lebih keren",
+        "Untuk melindungi kepala dari risiko cedera",
+        "Agar kendaraan lebih cepat",
+        "Untuk mengurangi penggunaan bahan bakar"
+      ],
+
+      answer: 1
+    },
+
+
+    // =====================================================
+    // SLIDE 21 - POST TEST
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "Bagaimana cara menggunakan helm yang benar?",
+
+      options: [
+        "Tidak perlu dikencangkan",
+        "Dipakai hanya ketika ada polisi",
+        "Pastikan helm sesuai standar dan tali terpasang dengan benar",
+        "Menggunakan helm yang sudah rusak"
       ],
 
       answer: 2
@@ -239,85 +415,120 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 13
+    // SLIDE 22 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Identifikasi Bahaya",
+      title: "Etika Berkendara",
 
       text:
-        "Identifikasi bahaya dilakukan untuk mengetahui sumber bahaya yang dapat menyebabkan kecelakaan atau gangguan kesehatan. Proses ini merupakan bagian penting dalam pengendalian risiko.",
-
-      image:
-        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+        "Keselamatan bukan hanya tentang melindungi diri sendiri, tetapi juga menghargai pengguna jalan lainnya. Etika berkendara membantu menciptakan kondisi lalu lintas yang lebih aman.",
 
       points: [
-        "Periksa kondisi lingkungan kerja",
-        "Periksa peralatan dan mesin",
-        "Perhatikan aktivitas pekerja",
-        "Catat potensi bahaya yang ditemukan"
+        "Hormati pengguna jalan lain",
+        "Jangan berkendara secara agresif",
+        "Gunakan lampu sein",
+        "Berikan jalan ketika diperlukan"
       ]
     },
 
 
     // =====================================================
-    // SLIDE 14
+    // SLIDE 23 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Pengendalian Risiko",
+      title: "Menjaga Jarak Aman",
 
       text:
-        "Setelah bahaya diidentifikasi, langkah berikutnya adalah melakukan pengendalian untuk mengurangi kemungkinan terjadinya kecelakaan atau dampak kesehatan.",
-
-      image:
-        "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80",
+        "Menjaga jarak aman memberikan waktu yang cukup untuk bereaksi apabila kendaraan di depan melakukan pengereman atau perubahan arah secara tiba-tiba.",
 
       points: [
-        "Hilangkan sumber bahaya jika memungkinkan",
-        "Gunakan pengendalian teknis",
-        "Gunakan prosedur kerja yang aman",
-        "Gunakan APD sebagai perlindungan tambahan"
+        "Jaga jarak dengan kendaraan di depan",
+        "Sesuaikan jarak dengan kondisi jalan",
+        "Tingkatkan jarak saat hujan",
+        "Hindari mengikuti kendaraan terlalu dekat"
       ]
     },
 
 
     // =====================================================
-    // SLIDE 15
+    // SLIDE 24 - MATERI
     // =====================================================
     {
-      type: "question",
+      type: "material",
 
-      q:
-        "Apa langkah awal dalam proses pengendalian risiko?",
+      title: "Bahaya Menggunakan Ponsel Saat Berkendara",
 
-      options: [
-        "Mengidentifikasi bahaya",
-        "Mengabaikan risiko",
-        "Menghentikan seluruh pekerjaan",
-        "Membuat laporan keuangan"
-      ],
+      text:
+        "Menggunakan ponsel saat berkendara dapat mengurangi konsentrasi dan memperlambat reaksi pengendara terhadap kondisi di jalan.",
 
-      answer: 0
+      points: [
+        "Jangan mengetik pesan saat berkendara",
+        "Jangan menggunakan media sosial saat berkendara",
+        "Simpan ponsel sebelum kendaraan berjalan",
+        "Berhenti di tempat aman jika perlu menggunakan ponsel"
+      ]
     },
 
 
     // =====================================================
-    // SLIDE 16
+    // SLIDE 25 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Berkendara Saat Kondisi Tubuh Tidak Fit",
+
+      text:
+        "Kondisi tubuh yang lelah, mengantuk, atau tidak fit dapat mengurangi kemampuan berkonsentrasi dan mengambil keputusan dengan baik.",
+
+      points: [
+        "Istirahat jika merasa lelah",
+        "Jangan memaksakan perjalanan",
+        "Pastikan kondisi tubuh cukup fit",
+        "Cari tempat aman untuk beristirahat"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 26 - MATERI
+    // =====================================================
+    {
+      type: "material",
+
+      title: "Komitmen Keselamatan Perjalanan",
+
+      text:
+        "Keselamatan perjalanan membutuhkan komitmen dan kebiasaan yang konsisten. Mulai dari diri sendiri dengan selalu berhati-hati, mematuhi aturan, dan menghargai pengguna jalan lainnya.",
+
+      points: [
+        "Utamakan keselamatan",
+        "Patuhi aturan lalu lintas",
+        "Jaga kondisi tubuh",
+        "Jaga kondisi kendaraan",
+        "Jadilah pengendara yang bertanggung jawab"
+      ]
+    },
+
+
+    // =====================================================
+    // SLIDE 27 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "Mengapa risiko di tempat kerja perlu dikendalikan?",
+        "Mengapa kita harus menjaga jarak aman dengan kendaraan di depan?",
 
       options: [
-        "Agar pekerjaan menjadi lebih lama",
-        "Untuk mencegah kejadian yang tidak diinginkan",
-        "Untuk menambah pekerjaan",
-        "Agar terlihat sibuk"
+        "Agar dapat menyalip lebih cepat",
+        "Agar memiliki waktu untuk bereaksi terhadap kondisi di depan",
+        "Agar kendaraan lain tidak bisa mendahului",
+        "Agar dapat menggunakan ponsel dengan nyaman"
       ],
 
       answer: 1
@@ -325,22 +536,22 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 17
+    // SLIDE 28 - POST TEST
     // =====================================================
     {
       type: "question",
 
       q:
-        "Apa tindakan yang tepat ketika melihat kondisi berbahaya?",
+        "Apa tindakan yang paling tepat jika merasa lelah atau mengantuk saat berkendara?",
 
       options: [
-        "Membiarkannya",
-        "Melaporkan dan melakukan tindakan pengendalian",
-        "Menunggu orang lain",
-        "Mengabaikannya"
+        "Mempercepat kendaraan agar segera sampai",
+        "Tetap berkendara tanpa berhenti",
+        "Berhenti di tempat aman dan beristirahat",
+        "Menggunakan ponsel agar tidak mengantuk"
       ],
 
-      answer: 1
+      answer: 2
     }
 
   ]
