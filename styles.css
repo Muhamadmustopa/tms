@@ -1007,8 +1007,21 @@ footer {
 /* =========================================================
    MOBILE
    ========================================================= */
+@media (max-width:520px){
+  .topbar{
+    height:70px;
+  }
 
-@media (max-width: 520px) {
+  .brand-mark img{
+    width:56px;
+    height:48px;
+  }
+
+  .mini-label{
+    display:block;
+    font-size:10px;
+    letter-spacing:.05em;
+  }
 
   .shell {
     width: calc(100% - 22px);
