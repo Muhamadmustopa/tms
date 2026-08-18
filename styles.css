@@ -357,6 +357,59 @@ footer {
 
 
 /* =========================================================
+   IDENTITY FORM
+========================================================= */
+
+.form-page {
+  width: min(720px, 100%);
+  margin: 80px auto;
+  padding: 42px;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.section-kicker {
+  color: #7f8897;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 28px;
+}
+
+.identity-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.identity-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.identity-form input {
+  width: 100%;
+  height: 52px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+}
+
+.identity-form input:focus {
+  border-color: var(--primary);
+}
+
+.identity-form button {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+/* =========================================================
    PROGRESS
    ========================================================= */
 
