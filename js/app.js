@@ -166,7 +166,6 @@ function renderHome() {
 /* =========================================================
    IDENTITY
 ========================================================= */
-
 function renderIdentity() {
 
   app.innerHTML = layout(`
@@ -174,11 +173,9 @@ function renderIdentity() {
     <section class="form-page">
 
       <div class="section-kicker">
-        01 / IDENTITAS DIRI
+        01 / LENGKAPI DATA YUK!
       </div>
 
-
-      
       <form
         class="identity-form"
         onsubmit="startTraining(event)"
@@ -217,6 +214,53 @@ function renderIdentity() {
         </label>
 
 
+        <label>
+
+          Department
+
+          <select
+            id="department"
+            name="department"
+            required
+          >
+
+            <option value="" selected disabled>
+              Pilih Department
+            </option>
+
+            <option value="FINANCE ACCOUNTING">
+              FINANCE ACCOUNTING
+            </option>
+
+            <option value="HRDGA">
+              HRDGA
+            </option>
+
+            <option value="ITDS">
+              ITDS
+            </option>
+
+            <option value="PRODUCT">
+              PRODUCT
+            </option>
+
+            <option value="SAS">
+              SAS
+            </option>
+
+            <option value="SALES">
+              SALES
+            </option>
+
+            <option value="WAREHOUSE">
+              WAREHOUSE
+            </option>
+
+          </select>
+
+        </label>
+
+
         <button
           class="primary full"
           type="submit"
@@ -230,10 +274,7 @@ function renderIdentity() {
     </section>
 
   `);
-}
-
-
-/* =========================================================
+}/* =========================================================
    START TRAINING
 ========================================================= */
 
