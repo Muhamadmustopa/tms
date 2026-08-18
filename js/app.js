@@ -125,7 +125,7 @@ function renderHome() {
       <div class="hero-card">
 
         <div class="card-icon">
-          ▣
+          
         </div>
 
         <div>
@@ -199,7 +199,7 @@ function renderIdentity() {
         <label>
 
           Email
-
+ 
           <span class="optional">
           </span>
 
