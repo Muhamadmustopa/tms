@@ -2,7 +2,7 @@
   --ink: #18202b;
   --muted: #7b8494;
   --line: #e6e9ef;
-  --soft: #f5f7fb;
+  --soft: #f5f7fb; 
   --primary: #172033;
   --accent: #1e8a5a;
   --danger: #a53b34;
@@ -1051,104 +1051,204 @@ footer {
   }
 }
 
-
 /* =========================================================
    MOBILE
    ========================================================= */
 @media (max-width:520px){
+
+  /* TOPBAR */
   .topbar{
-    height:70px;
+    height:64px;
   }
 
-  .brand-mark img{
-    width:56px;
-    height:48px;
+  /* LOGO */
+  .brand-logo{
+    width:80px;
+    height:55px;
   }
 
+  /* LABEL */
   .mini-label{
-    display:block;
+    display:none;
+  }
+
+
+  /* MAIN SHELL */
+  .shell{
+    width:calc(100% - 20px);
+  }
+
+
+  /* HERO */
+  .hero{
+    padding:35px 0 30px;
+    gap:25px;
+    min-height:auto;
+  }
+
+  .hero h1{
+    font-size:clamp(32px, 10vw, 42px);
+  }
+
+  .hero-copy > p{
+    font-size:14px;
+  }
+
+
+  /* HERO CARD */
+  .hero-card{
+    padding:20px;
+    border-radius:18px;
+  }
+
+
+  /* STATS */
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+
+  /* FORM */
+  .form-page{
+    width:100%;
+    margin:25px auto;
+    padding:24px 18px;
+    border-radius:16px;
+  }
+
+  .identity-form{
+    gap:16px;
+  }
+
+  .identity-form input,
+  .identity-form select{
+    min-height:50px;
+    font-size:16px;
+  }
+
+
+  /* MATERIAL CARD */
+  .material-card{
+    border-radius:16px;
+  }
+
+  .material-content{
+    padding:22px 16px 26px;
+  }
+
+  .material-content h2{
+    font-size:26px;
+  }
+
+  .material-content > p{
+    font-size:14px;
+  }
+
+
+  /* MATERIAL IMAGE */
+  .material-image{
+    height:auto;
+    min-height:180px;
+    max-height:300px;
+    margin:20px 0 22px;
+  }
+
+  .material-image img{
+    width:100%;
+    height:auto;
+    max-height:300px;
+    object-fit:contain;
+  }
+
+
+  /* GRAPHIC IMAGE */
+  .graphic-image{
+    height:auto;
+    min-height:180px;
+    max-height:300px;
+  }
+
+  .graphic-image img{
+    width:100%;
+    height:auto;
+    max-height:300px;
+    object-fit:contain;
+  }
+
+
+  /* QUIZ */
+  .quiz-card{
+    padding:24px 16px 28px;
+    border-radius:16px;
+  }
+
+  .quiz-card h2{
+    font-size:26px;
+  }
+
+  .option{
+    min-height:56px;
+    padding:12px;
+    gap:10px;
+    font-size:14px;
+  }
+
+  .option > span{
+    flex:0 0 32px;
+    width:32px;
+    height:32px;
+  }
+
+
+  /* NAVIGATION */
+  .nav-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+
+  .nav-row .primary,
+  .nav-row .secondary{
+    min-height:46px;
+    padding:0 12px;
+    font-size:12px;
+  }
+
+  .nav-row .nav-hint{
+    grid-column:1 / -1;
+  }
+
+
+  /* RESULT */
+  .result-page{
+    margin:35px auto;
+    padding:35px 20px;
+    border-radius:16px;
+  }
+
+  .score{
+    font-size:clamp(56px, 18vw, 74px);
+  }
+
+  .result-actions{
+    flex-direction:column;
+  }
+
+  .result-actions button{
+    width:100%;
+  }
+
+
+  /* FOOTER */
+  footer{
+    padding:25px 0 20px;
     font-size:10px;
-    letter-spacing:.05em;
   }
 
-  .shell {
-    width: calc(100% - 22px);
-  }
 
-  .mini-label {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  .result-actions {
-    flex-direction: column;
-  }
-
-  .result-actions button {
-    width: 100%;
-  }
-
-  .nav-row {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .nav-row .nav-hint {
-    grid-column: 1 / -1;
-  }
-
-  /*
-     Mobile:
-     gambar tidak terlalu tinggi
-  */
-
-  .material-image {
-    height: auto;
-
-    min-height: 220px;
-
-    max-height: 320px;
-  }
-
-  .material-image img {
-    width: 100%;
-
-    height: auto;
-
-    max-height: 320px;
-
-    object-fit: contain;
-  }
-
-  .graphic-image {
-    height: auto;
-
-    min-height: 220px;
-
-    max-height: 360px;
-  }
-
-  .graphic-image img {
-    width: 100%;
-
-    height: auto;
-
-    max-height: 360px;
-
-    object-fit: contain;
-  }
-
-  .material-content h2,
-  .quiz-card h2 {
-    font-size: 28px;
+  /* CEGAH HORIZONTAL SCROLL */
+  body{
+    overflow-x:hidden;
   }
 
 }
