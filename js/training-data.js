@@ -45,8 +45,7 @@ const TRAINING = {
       text:
         "Perjalanan menuju dan dari tempat kerja merupakan bagian dari aktivitas sehari-hari. Keselamatan perjalanan perlu menjadi perhatian agar kita dapat tiba di tujuan dengan selamat dan kembali ke rumah dengan aman.",
 
-      image: "./assets/images/3.png",
-
+      image: "./assets/images/3.png"
     },
 
 
@@ -65,7 +64,8 @@ const TRAINING = {
         "https://youtu.be/ONBAqjc-oYs?si=hi7eD5cvwGEP0o6c"
     },
 
-       // =====================================================
+
+    // =====================================================
     // SLIDE 5 - MATERI
     // =====================================================
     {
@@ -76,25 +76,23 @@ const TRAINING = {
       text:
         "Perjalanan menuju dan dari tempat kerja merupakan bagian dari aktivitas sehari-hari. Keselamatan perjalanan perlu menjadi perhatian agar kita dapat tiba di tujuan dengan selamat dan kembali ke rumah dengan aman.",
 
-      image: "./assets/images/6.png",
-
+      image: "./assets/images/6.png"
     },
 
 
-
     // =====================================================
-    // SLIDE 5 - POST TEST
+    // SLIDE 6 - POST TEST SOAL NOMOR 1
     // =====================================================
     {
       type: "question",
 
       q:
-        "1.	Apa yang dimaksud dengan commuting?",
+        "1. Apa yang dimaksud dengan commuting?",
 
       options: [
-        "Perjalanan untuk rekreasi ",
+        "Perjalanan untuk rekreasi",
         "Perjalanan rutin dari rumah ke tempat kerja dan sebaliknya",
-        "Perjalanan dinas ",
+        "Perjalanan dinas",
         "Perjalanan menggunakan kendaraan umum"
       ],
 
@@ -103,18 +101,18 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 6 - POST TEST
+    // SLIDE 7 - POST TEST SOAL NOMOR 2
     // =====================================================
     {
       type: "question",
 
       q:
-        "2.	Apa yang dimaksud dengan Safety Riding?",
+        "2. Apa yang dimaksud dengan Safety Riding?",
 
       options: [
-        "Berkendara dengan kecepatan tinggi ",
-        "Perilaku berkendara yang aman, tertib, dan bertanggung jawab ",
-        "Berkendara hanya menggunakan kendaraan baru ",
+        "Berkendara dengan kecepatan tinggi",
+        "Perilaku berkendara yang aman, tertib, dan bertanggung jawab",
+        "Berkendara hanya menggunakan kendaraan baru",
         "Berkendara tanpa memperhatikan pengguna jalan lain"
       ],
 
@@ -123,7 +121,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 7 - MATERI
+    // SLIDE 8 - MATERI
     // =====================================================
     {
       type: "material",
@@ -132,7 +130,7 @@ const TRAINING = {
 
       text:
         "hal-hal yang perlu di perhatikan dalam kondisi pengendara.",
-     
+
       image: "./assets/images/7.png",
 
       points: [
@@ -144,7 +142,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 8 - MATERI
+    // SLIDE 9 - MATERI
     // =====================================================
     {
       type: "material",
@@ -153,14 +151,13 @@ const TRAINING = {
 
       text:
         "perlengkapan keselamatan dalam mengemudikan motor dan mengemudikan mobil terlihat beberapa point seperti gambar di atas.",
-     
-      image: "./assets/images/8.png",
 
+      image: "./assets/images/8.png"
     },
 
 
     // =====================================================
-    // SLIDE 9 - MATERI
+    // SLIDE 10 - MATERI
     // =====================================================
     {
       type: "material",
@@ -169,49 +166,45 @@ const TRAINING = {
 
       text:
         "contoh penerapan dalam mentaati lalu lintas",
-     
-      image: "./assets/images/9.png",
 
+      image: "./assets/images/9.png"
     },
 
 
-
     // =====================================================
-    // SLIDE 10 - MATERI
+    // SLIDE 11 - MATERI
     // =====================================================
-     {
+    {
       type: "material",
 
       title: "Mengenali potensi bahaya",
 
       text:
         "contoh potensi bahaya",
-     
-      image: "./assets/images/11.png",
 
+      image: "./assets/images/11.png"
     },
 
-     // =====================================================
-    // SLIDE 10 - MATERI
+
     // =====================================================
-     {
+    // SLIDE 12 - MATERI
+    // =====================================================
+    {
       type: "material",
 
       title: "Mengatur kecepatan",
 
       text:
         "penerapan kemampuan mengatur laju kecepatan berikut beberapa point telah disampaikan pada gambar diatas.",
-     
-      image: "./assets/images/12.png",
 
+      image: "./assets/images/12.png"
     },
 
 
-
     // =====================================================
-    // SLIDE 11 - POST TEST-------- soal nomor 3
+    // SLIDE 13 - POST TEST SOAL NOMOR 3
     // =====================================================
-     {
+    {
       type: "question",
 
       q:
@@ -229,13 +222,13 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 12 - POST TEST soal nomor 4
+    // SLIDE 14 - POST TEST SOAL NOMOR 4
     // =====================================================
-     {
+    {
       type: "question",
 
       q:
-        "4.Manakah perilaku yang sesuai dengan peraturan lalu lintas?",
+        "4. Manakah perilaku yang sesuai dengan peraturan lalu lintas?",
 
       options: [
         "Menerobos lampu merah",
@@ -249,17 +242,17 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 13 - POST TEST soal nomor 5
+    // SLIDE 15 - POST TEST SOAL NOMOR 5
     // =====================================================
     {
       type: "question",
 
       q:
-        "5.	Bagaimana cara mengatur kecepatan kendaraan yang tepat?",
+        "5. Bagaimana cara mengatur kecepatan kendaraan yang tepat?",
 
       options: [
         "Selalu menggunakan kecepatan maksimal",
-        "Menyesuaikan kecepatan dengan kondisi jalan,cuaca,dan lalu lintas",
+        "Menyesuaikan kecepatan dengan kondisi jalan, cuaca, dan lalu lintas",
         "Mengikuti kecepatan kendaraan di depan",
         "Mempercepat kendaraan saat turun hujan"
       ],
@@ -268,59 +261,53 @@ const TRAINING = {
     },
 
 
-  
-
-
     // =====================================================
-    // SLIDE 17 - MATERI
+    // SLIDE 16 - MATERI
     // =====================================================
-     {
+    {
       type: "material",
 
       title: "Etika dalam kendaraan",
 
       text:
         "penerapan pengaturan kecepatan sesuai kondisi jalan, cuaca, dan lalu lintas",
-     
-      image: "./assets/images/13.png",
 
+      image: "./assets/images/13.png"
     },
 
 
     // =====================================================
-    // SLIDE 18 - MATERI
+    // SLIDE 17 - MATERI
     // =====================================================
-   {
+    {
       type: "material",
 
       title: "Pengguna transportasi umum",
 
       text:
         "Langkah-langkah dalam menunggu transportasi umum",
-     
-      image: "./assets/images/14.png",
 
+      image: "./assets/images/14.png"
     },
 
 
     // =====================================================
-    // SLIDE 19 - MATERI
+    // SLIDE 18 - MATERI
     // =====================================================
-   {
+    {
       type: "material",
 
       title: "saat naik dan di dalam transportasi umum",
 
       text:
         "Aturan di dalam transportasi umum",
-     
-      image: "./assets/images/15.png",
 
+      image: "./assets/images/15.png"
     },
 
 
     // =====================================================
-    // SLIDE 20 - POST TEST
+    // SLIDE 19 - POST TEST
     // =====================================================
     {
       type: "question",
@@ -340,17 +327,17 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 21 - POST TEST soal nomor 6 
+    // SLIDE 20 - POST TEST SOAL NOMOR 6
     // =====================================================
     {
       type: "question",
 
       q:
-        "6.	Apa yang sebaiknya dilakukan saat menunggu kendaraan umum di halte atau stasiun?",
+        "6. Apa yang sebaiknya dilakukan saat menunggu kendaraan umum di halte atau stasiun?",
 
       options: [
         "Berdiri sedekat mungkin dengan jalur kendaraan",
-        "Menggunakan headset dengan volume tinggi ",
+        "Menggunakan headset dengan volume tinggi",
         "Berjalan di area jalur kendaraan",
         "Berdiri di belakang garis aman"
       ],
@@ -360,17 +347,17 @@ const TRAINING = {
 
 
     // =====================================================
-    // POST TEST SOAL NOMOR 7 
+    // SLIDE 21 - POST TEST SOAL NOMOR 7
     // =====================================================
-      {
+    {
       type: "question",
 
       q:
-        "7.	Saat akan naik atau turun dari kendaraan umum, sebaiknya.. ",
+        "7. Saat akan naik atau turun dari kendaraan umum, sebaiknya..",
 
       options: [
-        "Segera masuk sebelum kendaraan berhenti ",
-        "Tunggu hingga kendaraan berhenti ",
+        "Segera masuk sebelum kendaraan berhenti",
+        "Tunggu hingga kendaraan berhenti",
         "Mendahului penumpang lain",
         "Berdiri di pintu kendaraan"
       ],
@@ -380,17 +367,17 @@ const TRAINING = {
 
 
     // =====================================================
-    // POST TEST SOAL NO 8 
+    // SLIDE 22 - POST TEST SOAL NOMOR 8
     // =====================================================
-      {
+    {
       type: "question",
 
       q:
-        "8.	Apa yang perlu diketahui pengguna transportasi umum untuk menghadapi kondisi darurat?",
+        "8. Apa yang perlu diketahui pengguna transportasi umum untuk menghadapi kondisi bahaya?",
 
       options: [
         "Jalur evakuasi darurat",
-        "Jadwal kendaraan berikutnya ",
+        "Jadwal kendaraan berikutnya",
         "Harga tiket",
         "Lokasi tempat duduk"
       ],
@@ -400,55 +387,32 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 24 - MATERI
+    // SLIDE 23 - MATERI
     // =====================================================
     {
       type: "material",
 
-      title: "Bahaya Menggunakan Ponsel Saat Berkendara",
+      title: "saat naik dan di dalam transportasi umum",
 
       text:
-        "Menggunakan ponsel saat berkendara dapat mengurangi konsentrasi dan memperlambat reaksi pengendara terhadap kondisi di jalan.",
+        "Aturan di dalam transportasi umum",
 
-      points: [
-        "Jangan mengetik pesan saat berkendara",
-        "Jangan menggunakan media sosial saat berkendara",
-        "Simpan ponsel sebelum kendaraan berjalan",
-        "Berhenti di tempat aman jika perlu menggunakan ponsel"
-      ]
+      image: "./assets/images/16.png"
     },
 
 
     // =====================================================
-    // SLIDE 25 - MATERI
+    // SLIDE 24 - LAST MATERI CLOSING
     // =====================================================
-     {
-      type: "question",
-
-      q:
-        "8.	Apa yang perlu diketahui pengguna transportasi umum untuk menghadapi kondisi berbahaya?",
-
-      options: [
-        "Jalur evakuasi darurat",
-        "Jadwal kendaraan berikutnya ",
-        "Harga tiket",
-        "Lokasi tempat duduk"
-      ],
-
-      answer: 0
-    },
-
-
-    // =====================================================
-    // MATERI 
-    // =====================================================
-      {
+    {
       type: "material",
 
-      title: "Terima kasih ",
+      title: "Terima kasih",
 
       text:
         "Semoga materi ini dapat menjadi pengingat dalam setiap perjalanan dimanapun dan kapan pun",
+
+      image: "./assets/images/17.png",
 
       points: [
         "Selalu utamakan keselamatan pada diri kita sendiri dan juga orang lain",
@@ -460,13 +424,13 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 27 - POST TEST SOAL NOMOR 9 
+    // SLIDE 25 - POST TEST SOAL NOMOR 9
     // =====================================================
     {
       type: "question",
 
       q:
-        "9.	Saat menyeberang jalan, apa yang perlu dilakukan?",
+        "9. Saat menyeberang jalan, apa yang perlu dilakukan?",
 
       options: [
         "Menyebrang di sembarang tempat",
@@ -480,13 +444,13 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 28 - POST TEST SOAL NOMOR 10
+    // SLIDE 26 - POST TEST SOAL NOMOR 10
     // =====================================================
-       {
+    {
       type: "question",
 
       q:
-        "10.	Apa yang sebaiknya dihindari oleh pejalan kaki saat berjalan?",
+        "10. Apa yang sebaiknya dihindari oleh pejalan kaki saat berjalan?",
 
       options: [
         "Menggunakan trotoar",
@@ -496,7 +460,7 @@ const TRAINING = {
       ],
 
       answer: 2
-    },
+    }
 
   ]
 };
