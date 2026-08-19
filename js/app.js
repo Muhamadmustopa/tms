@@ -1527,17 +1527,6 @@ function bootTMS() {
             </h2>
 
 
-            <p>
-
-              Terjadi error pada JavaScript.
-
-              Silakan buka Developer Console
-              (F12 → Console) untuk melihat
-              detailnya.
-
-            </p>
-
-
             <pre
               style="
                 white-space:pre-wrap;
