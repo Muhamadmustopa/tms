@@ -298,6 +298,8 @@ async function startTraining(e) {
   const email =
     document.getElementById("email").value.trim();
 
+   const department =
+     document.getElementById("department").value;
 
   /* ==========================================
      VALIDASI NAMA
@@ -323,6 +325,19 @@ async function startTraining(e) {
 
     return;
   }
+
+   /* ==========================================
+   VALIDASI DEPARTMENT
+   ========================================== */
+
+if (!department) {
+
+  alert(
+    "Department wajib dipilih."
+  );
+
+  return;
+}
 
 
   /* ==========================================
@@ -403,12 +418,13 @@ async function startTraining(e) {
 
     state.participant = {
 
-      name: name,
+  name: name,
 
-      email: email
+  email: email,
 
-    };
+  department: department
 
+};
 
     state.currentSlide = 0;
 
@@ -1309,14 +1325,15 @@ function finishTraining() {
     {};
 
 
-  state.participant = {
+ state.participant = {
 
-    name: "",
+  name: "",
 
-    email: ""
+  email: "",
 
-  };
+  department: ""
 
+};
 
   state.isSaving =
     false;
