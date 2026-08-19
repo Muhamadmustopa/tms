@@ -610,6 +610,70 @@ footer {
 
 
 /* =========================================================
+   IMAGE LOADING
+========================================================= */
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container .image-loading {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 200px;
+
+  background: #f3f4f6;
+
+  color: #888;
+
+  font-size: 14px;
+
+  z-index: 1;
+}
+
+.image-container img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.image-container img.loaded {
+  opacity: 1;
+}
+
+.image-container.image-loaded .image-loading {
+  display: none;
+}
+
+.image-container .image-error-text {
+  display: none;
+}
+
+.image-container.image-error .image-error-text {
+  display: flex;
+
+  min-height: 200px;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+/* =========================================================
    GRAPHIC IMAGE
    ========================================================= */
 
