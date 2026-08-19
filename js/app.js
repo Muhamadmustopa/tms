@@ -110,7 +110,7 @@ function renderHome() {
           <em></em>
         </h1>
 
-        <p>Basic Knowledge safe commuting awereness</p>
+        <p>Basic Knowledge</p>
 
         <button
           class="primary"
