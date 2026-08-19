@@ -1198,7 +1198,6 @@ function nextSlide() {
 
 }
 
-
 /* =========================================================
    RESULT
 ========================================================= */
@@ -1206,10 +1205,13 @@ function nextSlide() {
 function renderResult() {
   const r = calculateResult();
 
+  const perfectScore = r.score === 100;
+
   app.innerHTML = layout(`
+
     <section class="result-page">
 
-      <h2>Safe Commuting Awarennes</h2>
+      <h2>Safe Commuting Awareness</h2>
 
       <p class="result-thanks">
         Terima kasih, <b>${escapeHtml(state.participant.name)}</b>.
@@ -1217,30 +1219,74 @@ function renderResult() {
         <b>Safety Commuting Awareness</b>.
       </p>
 
+
       <div class="score">
         ${r.score}<small>/100</small>
       </div>
 
-      <p class="result-summary">
-        Anda menjawab <b>${r.correct} dari ${r.total}</b> soal dengan benar.
-      </p>
+
+      ${
+        perfectScore
+          ? `
+            <div class="perfect-message">
+              🎉 Bravo !!! Anda telah menyelesaikan seluruh
+              post test dengan benar.
+            </div>
+          `
+          : `
+            <p class="result-summary">
+              Anda menjawab
+              <b>${r.correct} dari ${r.total}</b>
+              soal dengan benar.
+            </p>
+          `
+      }
+
+
+      ${
+        perfectScore
+          ? `
+            <p class="result-summary">
+              Anda menjawab
+              <b>${r.correct} dari ${r.total}</b>
+              soal dengan benar.
+            </p>
+          `
+          : ""
+      }
+
 
       <div class="result-actions">
-        <button class="primary" onclick="saveResult()" id="save-result-button">
+
+        <button
+          class="primary"
+          onclick="saveResult()"
+          id="save-result-button"
+        >
           Simpan Hasil
         </button>
 
-        <button class="secondary" onclick="finishTraining()">
+
+        <button
+          class="secondary"
+          onclick="finishTraining()"
+        >
           Selesai
         </button>
+
       </div>
 
-      <div id="save-status" class="save-status"></div>
+
+      <div
+        id="save-status"
+        class="save-status"
+      ></div>
+
 
     </section>
+
   `);
 }
-
 
 /* =========================================================
    FINISH TRAINING
