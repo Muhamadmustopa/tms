@@ -1218,10 +1218,12 @@ function nextSlide() {
    RESULT
 ========================================================= */
 
-function renderResult() {
+async function renderResult() {
+
   const r = calculateResult();
 
   const perfectScore = r.score === 100;
+
 
   app.innerHTML = layout(`
 
@@ -1229,81 +1231,173 @@ function renderResult() {
 
       <h2>Safe Commuting Awareness</h2>
 
+
       <p class="result-thanks">
-        Terima kasih, <b>${escapeHtml(state.participant.name)}</b>.
+
+        Terima kasih,
+        <b>
+          ${escapeHtml(
+            state.participant.name
+          )}
+        </b>.
+
         Anda telah menyelesaikan LnD dengan materi
-        <b>Safety Commuting Awareness</b>.
+
+        <b>
+          Safety Commuting Awareness
+        </b>.
+
       </p>
 
 
       <div class="score">
+
         ${r.score}<small>/100</small>
+
       </div>
 
 
       ${
         perfectScore
+
           ? `
+
             <div class="perfect-message">
+
               🎉 Bravo !!! Anda telah menyelesaikan seluruh
               post test dengan benar.
+
             </div>
+
           `
+
           : `
+
             <p class="result-summary">
+
               Anda menjawab
-              <b>${r.correct} dari ${r.total}</b>
+
+              <b>
+                ${r.correct} dari ${r.total}
+              </b>
+
               soal dengan benar.
+
             </p>
+
           `
       }
 
 
       ${
         perfectScore
+
           ? `
+
             <p class="result-summary">
+
               Anda menjawab
-              <b>${r.correct} dari ${r.total}</b>
+
+              <b>
+                ${r.correct} dari ${r.total}
+              </b>
+
               soal dengan benar.
+
             </p>
+
           `
+
           : ""
       }
-
-
-      <div class="result-actions">
-
-        <button
-          class="primary"
-          onclick="saveResult()"
-          id="save-result-button"
-        >
-          Simpan Hasil
-        </button>
-
-
-        <button
-          class="secondary"
-          onclick="finishTraining()"
-        >
-          Selesai
-        </button>
-
-      </div>
 
 
       <div
         id="save-status"
         class="save-status"
-      ></div>
+      >
+
+        ⏳ Menyimpan hasil training...
+
+      </div>
+
+
+      <div class="result-actions">
+
+        <button
+          class="secondary"
+          onclick="finishTraining()"
+        >
+
+          Selesai
+
+        </button>
+
+      </div>
 
 
     </section>
 
   `);
-}
 
+
+  /* =======================================================
+     AUTO SAVE HASIL
+  ======================================================= */
+  try {
+
+    const saved =
+      await saveResult();
+
+
+    const status =
+      document.getElementById(
+        "save-status"
+      );
+
+
+    if (saved) {
+
+      if (status) {
+
+        status.innerHTML =
+          "✓ Hasil training berhasil disimpan.";
+      }
+
+    } else {
+
+      if (status) {
+
+        status.innerHTML =
+          "⚠ Hasil training belum berhasil disimpan.";
+
+      }
+
+    }
+
+
+  } catch (error) {
+
+    console.error(
+      "TMS: auto save gagal:",
+      error
+    );
+
+    const status =
+      document.getElementById(
+        "save-status"
+      );
+
+    if (status) {
+
+      status.innerHTML =
+        "⚠ Gagal menyimpan hasil training.";
+
+      }
+
+  }
+
+}
 /* =========================================================
    FINISH TRAINING
 ========================================================= */
