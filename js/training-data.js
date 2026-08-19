@@ -159,7 +159,7 @@ const TRAINING = {
     // =====================================================
     // SLIDE 10 - MATERI
     // =====================================================
-    {
+    { 
       type: "material",
 
       title: "Mematuhi peraturan lalu lintas",
