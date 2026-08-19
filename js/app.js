@@ -245,10 +245,6 @@ function renderIdentity() {
             </option>
 
             <option value="SAS">
-              SAS
-            </option>
-
-            <option value="SALES">
               SALES
             </option>
 
