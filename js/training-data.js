@@ -92,10 +92,10 @@ const TRAINING = {
         "1.	Apa yang dimaksud dengan commuting?",
 
       options: [
-        "A.	Perjalanan untuk rekreasi ",
-        "B.	Perjalanan rutin dari rumah ke tempat kerja dan sebaliknya",
-        "C.	Perjalanan dinas ",
-        "D.	Perjalanan menggunakan kendaraan umum"
+        "Perjalanan untuk rekreasi ",
+        "Perjalanan rutin dari rumah ke tempat kerja dan sebaliknya",
+        "Perjalanan dinas ",
+        "Perjalanan menggunakan kendaraan umum"
       ],
 
       answer: 1
@@ -112,10 +112,10 @@ const TRAINING = {
         "2.	Apa yang dimaksud dengan Safety Riding?",
 
       options: [
-        "A.	Berkendara dengan kecepatan tinggi ",
-        "B.	Perilaku berkendara yang aman, tertib, dan bertanggung jawab ",
-        "C.	Berkendara hanya menggunakan kendaraan baru ",
-        "D.	Berkendara tanpa memperhatikan pengguna jalan lain"
+        "Berkendara dengan kecepatan tinggi ",
+        "Perilaku berkendara yang aman, tertib, dan bertanggung jawab ",
+        "Berkendara hanya menggunakan kendaraan baru ",
+        "Berkendara tanpa memperhatikan pengguna jalan lain"
       ],
 
       answer: 1
@@ -128,7 +128,7 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Faktor Manusia",
+      title: "Kondisi Pengendara",
 
       text:
         "hal-hal yang perlu di perhatikan dalam kondisi pengendara.",
@@ -149,10 +149,10 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Faktor Manusia",
+      title: "Perlengkapan keselamatan berkendara",
 
       text:
-        "perlengkapan keselamatan dalam berkendara.",
+        "perlengkapan keselamatan dalam mengemudikan motor dan mengemudikan mobil terlihat beberapa point seperti gambar di atas.",
      
       image: "./assets/images/8.png",
 
@@ -168,7 +168,7 @@ const TRAINING = {
       title: "Mematuhi peraturan lalu lintas",
 
       text:
-        "penerapan dalam mentaati lalu lintas",
+        "contoh penerapan dalam mentaati lalu lintas",
      
       image: "./assets/images/9.png",
 
@@ -191,9 +191,25 @@ const TRAINING = {
 
     },
 
+     // =====================================================
+    // SLIDE 10 - MATERI
+    // =====================================================
+     {
+      type: "material",
+
+      title: "Mengatur kecepatan",
+
+      text:
+        "penerapan kemampuan mengatur laju kecepatan berikut beberapa point telah disampaikan pada gambar diatas.",
+     
+      image: "./assets/images/12.png",
+
+    },
+
+
 
     // =====================================================
-    // SLIDE 11 - POST TEST---------
+    // SLIDE 11 - POST TEST-------- soal nomor 3
     // =====================================================
      {
       type: "question",
@@ -202,10 +218,10 @@ const TRAINING = {
         "3. Manakah yang bukan merupakan kondisi pengendara yang baik sebelum berkendara?",
 
       options: [
-        "A. Tubuh sehat dan prima",
-        "B. Konsentrasi Penuh",
-        "C. Tidak Mengantuk",
-        "D. Berkendara dalam kondisi lelah"
+        "Tubuh sehat dan prima",
+        "Konsentrasi Penuh",
+        "Tidak Mengantuk",
+        "Berkendara dalam kondisi lelah"
       ],
 
       answer: 3
@@ -213,61 +229,46 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 12 - POST TEST
+    // SLIDE 12 - POST TEST soal nomor 4
     // =====================================================
      {
       type: "question",
 
       q:
-        "4.	Bagaimana cara mengatur kecepatan kendaraan yang tepat?",
+        "4.Manakah perilaku yang sesuai dengan peraturan lalu lintas?",
 
       options: [
-        "A.	Selalu menggunakan kecepatan maksimal",
-        "B.	Menyesuaikan kecepatan dengan kondisi jalan,cuaca,dan lalu lintas",
-        "C.	Mengikuti kecepatan kendaraan di depan",
-        "D.	Mempercepat kendaraan saat turun hujan"
+        "Menerobos lampu merah",
+        "Melawan Arus",
+        "Menggunakan lampu sein saat berbelok arah",
+        "Menggunakan telepon genggam saat berkendara"
+      ],
+
+      answer: 2
+    },
+
+
+    // =====================================================
+    // SLIDE 13 - POST TEST soal nomor 5
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "5.	Bagaimana cara mengatur kecepatan kendaraan yang tepat?",
+
+      options: [
+        "Selalu menggunakan kecepatan maksimal",
+        "Menyesuaikan kecepatan dengan kondisi jalan,cuaca,dan lalu lintas",
+        "Mengikuti kecepatan kendaraan di depan",
+        "Mempercepat kendaraan saat turun hujan"
       ],
 
       answer: 1
     },
 
 
-    // =====================================================
-    // SLIDE 13 - POST TEST
-    // =====================================================
-    {
-       {
-      type: "question",
-
-      q:
-        "5.	Apa yang sebaiknya dilakukan saat menunggu kendaraan umum di halte atau stasiun?",
-
-      options: [
-        "A.	Berdiri sedekat mungkin dengan jalur kendaraan",
-        "B.	menggunakan headset dengan volume tinggi",
-        "C.	Berjalan di jalur kendaraan",
-        "D.	Berdiri di belakang garis aman"
-      ],
-
-      answer: 3
-    },
-
-
-    // =====================================================
-    // SLIDE 16 - MATERI
-    // =====================================================
-     {
-      type: "material",
-
-      title: "Pengaturan kecepatan kendaraan",
-
-      text:
-        "penerapan pengaturan kecepatan sesuai kondisi jalan, cuaca, dan lalu lintas",
-     
-      image: "./assets/images/12.png",
-
-    },
-
+  
 
 
     // =====================================================
@@ -289,40 +290,32 @@ const TRAINING = {
     // =====================================================
     // SLIDE 18 - MATERI
     // =====================================================
-    {
+   {
       type: "material",
 
-      title: "Pentingnya Helm Saat Berkendara",
+      title: "Pengguna transportasi umum",
 
       text:
-        "Helm merupakan salah satu perlengkapan keselamatan yang sangat penting bagi pengendara sepeda motor. Helm membantu melindungi kepala dari risiko cedera ketika terjadi kecelakaan.",
+        "Langkah-langkah dalam menunggu transportasi umum",
+     
+      image: "./assets/images/14.png",
 
-      points: [
-        "Gunakan helm yang sesuai standar",
-        "Pastikan ukuran helm sesuai",
-        "Kencangkan tali helm dengan benar",
-        "Jangan menggunakan helm yang rusak"
-      ]
     },
 
 
     // =====================================================
-    // SLIDE 19 - POST TEST
+    // SLIDE 19 - MATERI
     // =====================================================
-    {
-      type: "question",
+   {
+      type: "material",
 
-      q:
-        "Apa yang sebaiknya dilakukan sebelum memulai perjalanan?",
+      title: "saat naik dan di dalam transportasi umum",
 
-      options: [
-        "Memastikan kondisi tubuh dan kendaraan siap",
-        "Langsung berkendara agar tidak terlambat",
-        "Menggunakan ponsel sambil berkendara",
-        "Mengabaikan kondisi kendaraan"
-      ],
+      text:
+        "Aturan di dalam transportasi umum",
+     
+      image: "./assets/images/15.png",
 
-      answer: 0
     },
 
 
@@ -347,62 +340,62 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 21 - POST TEST
+    // SLIDE 21 - POST TEST soal nomor 6 
     // =====================================================
     {
       type: "question",
 
       q:
-        "Bagaimana cara menggunakan helm yang benar?",
+        "6.	Apa yang sebaiknya dilakukan saat menunggu kendaraan umum di halte atau stasiun?",
 
       options: [
-        "Tidak perlu dikencangkan",
-        "Dipakai hanya ketika ada polisi",
-        "Pastikan helm sesuai standar dan tali terpasang dengan benar",
-        "Menggunakan helm yang sudah rusak"
+        "Berdiri sedekat mungkin dengan jalur kendaraan",
+        "Menggunakan headset dengan volume tinggi ",
+        "Berjalan di area jalur kendaraan",
+        "Berdiri di belakang garis aman"
       ],
 
-      answer: 2
+      answer: 3
     },
 
 
     // =====================================================
-    // SLIDE 22 - MATERI
+    // POST TEST SOAL NOMOR 7 
     // =====================================================
-    {
-      type: "material",
+      {
+      type: "question",
 
-      title: "Etika Berkendara",
+      q:
+        "7.	Saat akan naik atau turun dari kendaraan umum, sebaiknya.. ",
 
-      text:
-        "Keselamatan bukan hanya tentang melindungi diri sendiri, tetapi juga menghargai pengguna jalan lainnya. Etika berkendara membantu menciptakan kondisi lalu lintas yang lebih aman.",
+      options: [
+        "Segera masuk sebelum kendaraan berhenti ",
+        "Tunggu hingga kendaraan berhenti ",
+        "Mendahului penumpang lain",
+        "Berdiri di pintu kendaraan"
+      ],
 
-      points: [
-        "Hormati pengguna jalan lain",
-        "Jangan berkendara secara agresif",
-        "Gunakan lampu sein",
-        "Berikan jalan ketika diperlukan"
-      ]
+      answer: 1
     },
 
 
     // =====================================================
-    // SLIDE 23 - MATERI
+    // POST TEST SOAL NO 8 
     // =====================================================
-    {
-      type: "material",
+      {
+      type: "question",
 
-      title: "Menjaga Jarak Aman",
+      q:
+        "8.	Apa yang perlu diketahui pengguna transportasi umum untuk menghadapi kondisi darurat?",
 
-      text:
-        "Menjaga jarak aman memberikan waktu yang cukup untuk bereaksi apabila kendaraan di depan melakukan pengereman atau perubahan arah secara tiba-tiba.",
+      options: [
+        "Jalur evakuasi darurat",
+        "Jadwal kendaraan berikutnya ",
+        "Harga tiket",
+        "Lokasi tempat duduk"
+      ],
 
-      points: [
-        "Jaga jarak dengan kendaraan di depan",
-        "Sesuaikan jarak dengan kondisi jalan",
-        "Tingkatkan jarak saat hujan",
-        "Hindari mengikuti kendaraan terlalu dekat"
-      ]
+      answer: 0
     },
 
 
@@ -429,58 +422,57 @@ const TRAINING = {
     // =====================================================
     // SLIDE 25 - MATERI
     // =====================================================
-    {
+     {
+      type: "question",
+
+      q:
+        "8.	Apa yang perlu diketahui pengguna transportasi umum untuk menghadapi kondisi berbahaya?",
+
+      options: [
+        "Jalur evakuasi darurat",
+        "Jadwal kendaraan berikutnya ",
+        "Harga tiket",
+        "Lokasi tempat duduk"
+      ],
+
+      answer: 0
+    },
+
+
+    // =====================================================
+    // MATERI 
+    // =====================================================
+      {
       type: "material",
 
-      title: "Berkendara Saat Kondisi Tubuh Tidak Fit",
+      title: "Terima kasih ",
 
       text:
-        "Kondisi tubuh yang lelah, mengantuk, atau tidak fit dapat mengurangi kemampuan berkonsentrasi dan mengambil keputusan dengan baik.",
+        "Semoga materi ini dapat menjadi pengingat dalam setiap perjalanan dimanapun dan kapan pun",
 
       points: [
-        "Istirahat jika merasa lelah",
-        "Jangan memaksakan perjalanan",
-        "Pastikan kondisi tubuh cukup fit",
-        "Cari tempat aman untuk beristirahat"
+        "Selalu utamakan keselamatan pada diri kita sendiri dan juga orang lain",
+        "Selalu patuh dalam etika berkendara yang baik",
+        "Mentaati peraturan lalu lintas",
+        "Etika dalam menggunakan transportasi umum dengan baik."
       ]
     },
 
 
     // =====================================================
-    // SLIDE 26 - MATERI
-    // =====================================================
-    {
-      type: "material",
-
-      title: "Komitmen Keselamatan Perjalanan",
-
-      text:
-        "Keselamatan perjalanan membutuhkan komitmen dan kebiasaan yang konsisten. Mulai dari diri sendiri dengan selalu berhati-hati, mematuhi aturan, dan menghargai pengguna jalan lainnya.",
-
-      points: [
-        "Utamakan keselamatan",
-        "Patuhi aturan lalu lintas",
-        "Jaga kondisi tubuh",
-        "Jaga kondisi kendaraan",
-        "Jadilah pengendara yang bertanggung jawab"
-      ]
-    },
-
-
-    // =====================================================
-    // SLIDE 27 - POST TEST
+    // SLIDE 27 - POST TEST SOAL NOMOR 9 
     // =====================================================
     {
       type: "question",
 
       q:
-        "Mengapa kita harus menjaga jarak aman dengan kendaraan di depan?",
+        "9.	Saat menyeberang jalan, apa yang perlu dilakukan?",
 
       options: [
-        "Agar dapat menyalip lebih cepat",
-        "Agar memiliki waktu untuk bereaksi terhadap kondisi di depan",
-        "Agar kendaraan lain tidak bisa mendahului",
-        "Agar dapat menggunakan ponsel dengan nyaman"
+        "Menyebrang di sembarang tempat",
+        "Melihat kanan-kiri-kanan dan memastikan pengendara lain melihat kita",
+        "Berlari tanpa melihat kondisi jalanan",
+        "Menggunakan ponsel sambil menyebrang tanpa melihat arah"
       ],
 
       answer: 1
@@ -488,23 +480,23 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 28 - POST TEST
+    // SLIDE 28 - POST TEST SOAL NOMOR 10
     // =====================================================
-    {
+       {
       type: "question",
 
       q:
-        "Apa tindakan yang paling tepat jika merasa lelah atau mengantuk saat berkendara?",
+        "10.	Apa yang sebaiknya dihindari oleh pejalan kaki saat berjalan?",
 
       options: [
-        "Mempercepat kendaraan agar segera sampai",
-        "Tetap berkendara tanpa berhenti",
-        "Berhenti di tempat aman dan beristirahat",
-        "Menggunakan ponsel agar tidak mengantuk"
+        "Menggunakan trotoar",
+        "Menggunakan jalur khusus pedestrian atau pejalan kaki",
+        "Berjalan sambil bermain ponsel",
+        "Menyebrang di zebracross"
       ],
 
       answer: 2
-    }
+    },
 
   ]
 };
