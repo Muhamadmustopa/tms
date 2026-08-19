@@ -382,7 +382,47 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 23 - LAST MATERI CLOSING
+    // SLIDE 23 - POST TEST No.9
+    // =====================================================
+      {
+      type: "question",
+
+      q:
+        "9. Saat menyeberang jalan, apa yang perlu dilakukan?",
+
+      options: [
+        "Menyebrang di sembarang tempat",
+        "Melihat kanan-kiri-kanan dan memastikan pengendara lain melihat kita",
+        "Berlari tanpa melihat kondisi jalanan",
+        "Menggunakan ponsel sambil menyebrang tanpa melihat arah"
+      ],
+
+      answer: 1
+    },
+
+
+    // =====================================================
+    // SLIDE 24 - POST TEST SOAL NOMOR 10
+    // =====================================================
+    {
+      type: "question",
+
+      q:
+        "10. Apa yang sebaiknya dihindari oleh pejalan kaki saat berjalan?",
+
+      options: [
+        "Menggunakan trotoar",
+        "Menggunakan jalur khusus pedestrian atau pejalan kaki",
+        "Berjalan sambil bermain ponsel",
+        "Menyebrang di zebracross"
+      ],
+
+      answer: 2
+    }
+
+
+    // =====================================================
+    // SLIDE 25 - LAST CLOSING
     // =====================================================
     {
       type: "material",
@@ -401,46 +441,6 @@ const TRAINING = {
         "Etika dalam menggunakan transportasi umum dengan baik."
       ]
     },
-
-
-    // =====================================================
-    // SLIDE 24 - POST TEST SOAL NOMOR 9
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "9. Saat menyeberang jalan, apa yang perlu dilakukan?",
-
-      options: [
-        "Menyebrang di sembarang tempat",
-        "Melihat kanan-kiri-kanan dan memastikan pengendara lain melihat kita",
-        "Berlari tanpa melihat kondisi jalanan",
-        "Menggunakan ponsel sambil menyebrang tanpa melihat arah"
-      ],
-
-      answer: 1
-    },
-
-
-    // =====================================================
-    // SLIDE 25 - POST TEST SOAL NOMOR 10
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "10. Apa yang sebaiknya dihindari oleh pejalan kaki saat berjalan?",
-
-      options: [
-        "Menggunakan trotoar",
-        "Menggunakan jalur khusus pedestrian atau pejalan kaki",
-        "Berjalan sambil bermain ponsel",
-        "Menyebrang di zebracross"
-      ],
-
-      answer: 2
-    }
 
   ]
 };
