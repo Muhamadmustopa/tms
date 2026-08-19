@@ -732,32 +732,42 @@ function renderMaterialSlide(slide) {
 
   const imageHtml =
 
-    slide.image
+  slide.image
 
-      ? `
+    ? `
 
-        <div class="material-image">
+      <div class="material-image image-container">
 
-          <img
-            src="${escapeHtml(slide.image)}"
-            alt="${escapeHtml(
-              slide.title || "Materi"
-            )}"
-            onerror="
-              this.parentElement.classList.add('image-error');
-              this.style.display='none';
-            "
-          >
-
-          <div class="image-error-text">
-            Gambar tidak dapat dimuat.
-          </div>
-
+        <div class="image-loading">
+          Memuat gambar...
         </div>
 
-      `
+        <img 
+          src="${escapeHtml(slide.image)}" 
+          alt="${escapeHtml(
+            slide.title || "Materi"
+          )}"
+          loading="lazy"
+          decoding="async"
+          onload="
+            this.classList.add('loaded');
+            this.parentElement.classList.add('image-loaded');
+          "
+          onerror="
+            this.parentElement.classList.add('image-error');
+            this.style.display='none';
+          "
+        >
 
-      : "";
+        <div class="image-error-text">
+          Gambar tidak dapat dimuat.
+        </div>
+
+      </div>
+
+    `
+
+    : "";
 
 
   const pointsHtml =
@@ -854,31 +864,40 @@ function renderImageSlide(slide) {
 
   const imageHtml =
 
-    slide.image
+  slide.image
 
-      ? `
+    ? `
 
-        <div class="graphic-image">
+      <div class="graphic-image image-container">
 
-          <img
-            src="${escapeHtml(slide.image)}"
-            alt="${escapeHtml(
-              slide.title ||
-              "Gambar training"
-            )}"
-            onerror="
-              this.parentElement.classList.add('image-error');
-              this.style.display='none';
-            "
-          >
-
-          <div class="image-error-text">
-            Gambar tidak dapat dimuat.
-          </div>
-
+        <div class="image-loading">
+          Memuat gambar...
         </div>
 
-      `
+        <img 
+          src="${escapeHtml(slide.image)}" 
+          alt="${escapeHtml(
+            slide.title || "Gambar training"
+          )}"
+          loading="lazy"
+          decoding="async"
+          onload="
+            this.classList.add('loaded');
+            this.parentElement.classList.add('image-loaded');
+          "
+          onerror="
+            this.parentElement.classList.add('image-error');
+            this.style.display='none';
+          "
+        >
+
+        <div class="image-error-text">
+          Gambar tidak dapat dimuat.
+        </div>
+
+      </div>
+
+    `
 
       : `
 
