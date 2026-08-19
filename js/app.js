@@ -1380,7 +1380,7 @@ async function renderResult() {
       if (status) {
 
         status.innerHTML =
-          "✓ Hasil training berhasil disimpan.";
+          "✓ Hasil post test berhasil disimpan.";
       }
 
     } else {
@@ -1388,7 +1388,7 @@ async function renderResult() {
       if (status) {
 
         status.innerHTML =
-          "⚠ Hasil training belum berhasil disimpan.";
+          "⚠ Hasil post test belum berhasil disimpan.";
 
       }
 
