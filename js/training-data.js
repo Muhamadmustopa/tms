@@ -307,27 +307,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 19 - POST TEST
-    // =====================================================
-    {
-      type: "question",
-
-      q:
-        "Mengapa penggunaan helm penting bagi pengendara sepeda motor?",
-
-      options: [
-        "Agar terlihat lebih keren",
-        "Untuk melindungi kepala dari risiko cedera",
-        "Agar kendaraan lebih cepat",
-        "Untuk mengurangi penggunaan bahan bakar"
-      ],
-
-      answer: 1
-    },
-
-
-    // =====================================================
-    // SLIDE 20 - POST TEST SOAL NOMOR 6
+    // SLIDE 19 - POST TEST SOAL NOMOR 6
     // =====================================================
     {
       type: "question",
@@ -347,7 +327,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 21 - POST TEST SOAL NOMOR 7
+    // SLIDE 20 - POST TEST SOAL NOMOR 7
     // =====================================================
     {
       type: "question",
@@ -367,7 +347,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 22 - POST TEST SOAL NOMOR 8
+    // SLIDE 21 - POST TEST SOAL NOMOR 8
     // =====================================================
     {
       type: "question",
@@ -387,7 +367,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 23 - MATERI
+    // SLIDE 22 - MATERI
     // =====================================================
     {
       type: "material",
@@ -402,7 +382,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 24 - LAST MATERI CLOSING
+    // SLIDE 23 - LAST MATERI CLOSING
     // =====================================================
     {
       type: "material",
@@ -424,7 +404,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 25 - POST TEST SOAL NOMOR 9
+    // SLIDE 24 - POST TEST SOAL NOMOR 9
     // =====================================================
     {
       type: "question",
@@ -444,7 +424,7 @@ const TRAINING = {
 
 
     // =====================================================
-    // SLIDE 26 - POST TEST SOAL NOMOR 10
+    // SLIDE 25 - POST TEST SOAL NOMOR 10
     // =====================================================
     {
       type: "question",
