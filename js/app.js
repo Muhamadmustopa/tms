@@ -1317,7 +1317,7 @@ async function renderResult() {
         class="save-status"
       >
 
-        ⏳ Menyimpan hasil training...
+         Berhasil menyimpan data
 
       </div>
 
