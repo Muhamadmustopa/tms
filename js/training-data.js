@@ -387,7 +387,7 @@ const TRAINING = {
     {
       type: "material",
 
-      title: "Terima kasih",
+      title: "",
 
       text:
         "Semoga materi ini dapat menjadi pengingat dalam setiap perjalanan dimanapun dan kapan pun",
